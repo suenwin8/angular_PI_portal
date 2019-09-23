@@ -31,14 +31,14 @@
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('pages')">
                 <i class="fa fa-plus"></i>&nbsp;
-                <span>{{ 'Menu' | translate }}</span>
+                <span>{{ 'Purchase Invoice' | translate }}</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <li>
-                        <a href="javascript:void(0)">
+                        <a href="javascript:void(0)" [routerLink]="['/bn-pi-hdr']" [routerLinkActive]="['router-link-active']" >
                             <i class="fa fa-monument"></i>&nbsp;
-                            <span>{{ 'Submenu' | translate }}</span>
+                            <span>{{ 'View PI History' | translate }}</span>
                         </a>
                     </li>
                     <li>
