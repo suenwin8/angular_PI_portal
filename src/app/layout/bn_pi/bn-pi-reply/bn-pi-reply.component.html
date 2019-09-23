@@ -1,42 +1,119 @@
 <div [@routerTransition]>
-   <app-page-header [heading]="'Reply PI'" [icon]="'fa-desktop'"></app-page-header> 
-<div class="row">
-  <div class="col-lg-6">
-    <form action="" role="form">
-      <fieldset class="form-group">
-        <label for="">PI No.:</label>
-        <input type="text" class="form-control" id="txn_no" formControlName="txn_no">        
-      </fieldset>
+    <app-page-header [heading]="'Reply PI'" [icon]="'fa-desktop'"></app-page-header>
+    <div class="alert alert-info">
+        <strong>Remark</strong>
+        <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
+    </div>
 
-      <fieldset class="form-group">
-          <label>Stock Received Date:</label>
-          <input class="form-control" id="received_date" formControlName="received_date">          
-      </fieldset>
-      <fieldset class="form-group">
-          <label>Notice PI Reply Date:</label>
-          <input class="form-control" id="notice_pi_reply_date" formControlName="notice_pi_reply_date">          
-      </fieldset>
-      <fieldset class="form-group">
-          <label>Airway Bill#</label>
-          <input class="form-control" id="airway_bill" formControlName="airway_bill">          
-      </fieldset>
-      <fieldset class="form-group">
-          <label>Reply Status:</label>
-          <input class="form-control" id="rc_status" formControlName="rc_status">          
-      </fieldset>
-      <fieldset class="form-group">
-          <label>Reply Date:</label>
-          <input class="form-control" id="actual_reply_date" formControlName="actual_reply_date">          
-      </fieldset>
+    <div class="alert alert-danger">
+        <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <form action="" role="form">
+                <fieldset class="form-group" disabled="">
+                    <label for="">PI No.:</label>
+                    <input type="text" class="form-control" id="txn_no" formControlName="txn_no" />
+                </fieldset>
 
-      <div class="alert alert-info">
-          <strong>Remark</strong> 
-          <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
-      </div>
+                <fieldset class="form-group" disabled="">
+                    <label>Stock Received Date:</label>
+                    <input class="form-control" id="received_date" formControlName="received_date" />
+                </fieldset>
+                <fieldset class="form-group" disabled="">
+                    <label>Notice PI Reply Date:</label>
+                    <input class="form-control" id="notice_pi_reply_date" formControlName="notice_pi_reply_date" />
+                </fieldset>
+                <fieldset class="form-group" disabled="">
+                    <label>Airway Bill#</label>
+                    <input class="form-control" id="airway_bill" formControlName="airway_bill" />
+                </fieldset>
+                <fieldset class="form-group" disabled="">
+                    <label>Reply Status:</label>
+                    <input class="form-control" id="rc_status" formControlName="rc_status" />
+                </fieldset>
+                <fieldset class="form-group" disabled="">
+                    <label>Reply Date:</label>
+                    <input class="form-control" id="actual_reply_date" formControlName="actual_reply_date" />
+                </fieldset>
 
-    </form>
-  </div>
-</div>
+                <fieldset class="form-group">
+                    <label>1. How do you think about the prices offered?</label>
+                    <br />
+                    <label>(i) Large and Beautiful BirdNest</label>
+                    <div class="form-group">
+                        <select class="form-control" id="large_beautiful_birdnests_mark">
+                            <option>--Please choose--</option>
+                            <option>Good</option>
+                            <option>Fair</option>
+                            <option>A little Lower</option>
+                            <option>Too low</option>
+                            <option>Loss Money</option>
+                        </select>
+                    </div>
+                </fieldset>
 
+                <fieldset class="form-group">
+                    <label>(ii) Broken, Feet and Mess</label>
+                    <div class="form-group">
+                        <select class="form-control" id="broken_birdnests_mark">
+                            <option>--Please choose--</option>
+                            <option>Good</option>
+                            <option>Fair</option>
+                            <option>A little Lower</option>
+                            <option>Too low</option>
+                            <option>Loss Money</option>
+                        </select>
+                    </div>
+                </fieldset>
 
+                <fieldset class="form-group">
+                    <label>2(a) Please update us the current price of dry raw material (Rp/kg)</label>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm">
+                                Mix(Mixed)
+                            </div>
+                            <div class="col-sm">
+                                <input class="form-control" id="mix_price" formControlName="mix_price" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                BULU BERAT (重毛)
+                            </div>
+                            <div class="col-sm">
+                                <input class="form-control" id="bulu_berat_price" formControlName="bulu_berat_price" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                BULU SEDANG (中毛)
+                            </div>
+                            <div class="col-sm">
+                                <input class="form-control" id="bulu_sedang_price" formControlName="bulu_sedang_price" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                BULU RINGAN (輕毛)
+                            </div>
+                            <div class="col-sm">
+                                <input class="form-control" id="bulu_ringan_price" formControlName="bulu_ringan_price" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>2(b) Market Information (if any):</label>
+                    <div class="form-group">
+                        <input class="form-control" id="market_information" formControlName="market_information" />
+                    </div>
+                </fieldset>
+
+                
+            </form>
+        </div>
+    </div>
 </div>

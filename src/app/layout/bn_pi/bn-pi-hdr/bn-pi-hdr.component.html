@@ -15,8 +15,16 @@
             {{hdr.status}}
           </td>
           <td>
-            <button class='btn btn-info' (click)="onSelect()"> View</button>
-            <button class='btn btn-info' (click)="onSelect()"> Edit</button>
+              <div class="row">
+                  <div class="col-sm">
+                      <button class='btn btn-default' (click)="onView(hdr.txn_no)"> View</button>
+                  </div>
+                  <div class="col-sm">
+                      <button class='btn btn-default' (click)="onSelect(hdr.txn_no)"> Edit</button>
+                  </div>
+              </div>
+            
+            
           </td>
         </tr>
       </table>

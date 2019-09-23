@@ -21,8 +21,13 @@ export class BnPiHdrComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(hdr: BN_PI_HDR): void {
+  public onSelect(hdr: BN_PI_HDR): void {
     this.selected_HDR = hdr;
+    console.log(hdr);
+  }
+  public onView(hdr: BN_PI_HDR): void {
+    this.selected_HDR = hdr;
+    console.log(hdr);
   }
 
 }
