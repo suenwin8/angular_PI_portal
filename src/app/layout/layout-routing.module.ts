@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+// import * as bnPiHdrComponent from './bn_pi/bn-pi-hdr/bn-pi-hdr.component';
 
 const routes: Routes = [
     {
@@ -15,7 +16,9 @@ const routes: Routes = [
             { path: 'bs-element', loadChildren: () => import('./bs-element/bs-element.module').then(m => m.BsElementModule) },
             { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
-            { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) }
+            { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
+            // { path: 'bn-pi-hdr', component: bnPiHdrComponent.BnPiHdrComponent},
+            {path: 'bn-pi-hdr', loadChildren: () => import('./bn_pi/bn-pi-hdr/bn-pi-hdr.module').then(m => m.BnPiHdrModule)},
         ]
     }
 ];

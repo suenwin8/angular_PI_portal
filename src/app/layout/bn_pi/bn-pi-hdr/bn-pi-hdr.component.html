@@ -1,0 +1,24 @@
+<div>
+    <h1>{{ title }}</h1>
+    <table class="table">
+        <tr *ngFor="let hdr of hdr_list">
+          <td>
+            {{hdr.txn_no}}
+          </td>
+          <td>
+            {{hdr.supplier_code}}
+          </td>
+          <td>
+            {{hdr.notice_pi_reply_date | date:'yyyy-MMM-dd'}}
+          </td>
+          <td>
+            {{hdr.status}}
+          </td>
+          <td>
+            <button class='btn btn-info' (click)="onSelect()"> View</button>
+            <button class='btn btn-info' (click)="onSelect()"> Edit</button>
+          </td>
+        </tr>
+      </table>
+      
+</div>

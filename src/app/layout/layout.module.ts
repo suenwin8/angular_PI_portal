@@ -8,6 +8,11 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 
+
+
+ // import { BnPiReplyComponent } from './bn_pi/bn-pi-reply/bn-pi-reply.component';
+
+
 @NgModule({
     imports: [
         CommonModule,
@@ -15,6 +20,9 @@ import { HeaderComponent } from './components/header/header.component';
         TranslateModule,
         NgbDropdownModule
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
+    declarations: [LayoutComponent, SidebarComponent, HeaderComponent
+// , BnPiHdrComponent
+// , BnPiReplyComponent
+    ]
 })
 export class LayoutModule {}
