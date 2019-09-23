@@ -1,4 +1,42 @@
-<p>
-  bn-pi-reply works!
-</p>
-test commit
+<div [@routerTransition]>
+   <app-page-header [heading]="'Reply PI'" [icon]="'fa-desktop'"></app-page-header> 
+<div class="row">
+  <div class="col-lg-6">
+    <form action="" role="form">
+      <fieldset class="form-group">
+        <label for="">PI No.:</label>
+        <input type="text" class="form-control" id="txn_no" formControlName="txn_no">        
+      </fieldset>
+
+      <fieldset class="form-group">
+          <label>Stock Received Date:</label>
+          <input class="form-control" id="received_date" formControlName="received_date">          
+      </fieldset>
+      <fieldset class="form-group">
+          <label>Notice PI Reply Date:</label>
+          <input class="form-control" id="notice_pi_reply_date" formControlName="notice_pi_reply_date">          
+      </fieldset>
+      <fieldset class="form-group">
+          <label>Airway Bill#</label>
+          <input class="form-control" id="airway_bill" formControlName="airway_bill">          
+      </fieldset>
+      <fieldset class="form-group">
+          <label>Reply Status:</label>
+          <input class="form-control" id="rc_status" formControlName="rc_status">          
+      </fieldset>
+      <fieldset class="form-group">
+          <label>Reply Date:</label>
+          <input class="form-control" id="actual_reply_date" formControlName="actual_reply_date">          
+      </fieldset>
+
+      <div class="alert alert-info">
+          <strong>Remark</strong> 
+          <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+</div>
