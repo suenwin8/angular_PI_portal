@@ -1,5 +1,5 @@
-<div>
-    <h1>{{ title }}</h1>
+<div  [@routerTransition]>
+    <app-page-header [heading]="'View PI History'" [icon]="'fa-desktop'"></app-page-header>
     <table class="table">
         <tr *ngFor="let hdr of hdr_list">
           <td>
@@ -17,10 +17,10 @@
           <td>
               <div class="row">
                   <div class="col-sm">
-                      <button class='btn btn-default' (click)="onView(hdr.txn_no)"> View</button>
+                      <button class='btn btn-primary' (click)="onView(hdr.txn_no)"> View</button>
                   </div>
                   <div class="col-sm">
-                      <button class='btn btn-default' (click)="onSelect(hdr.txn_no)"> Edit</button>
+                      <button class='btn btn-success' (click)="onSelect(hdr.txn_no)"> Edit</button>
                   </div>
               </div>
             

@@ -19,7 +19,7 @@ const routes: Routes = [
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
             // { path: 'bn-pi-hdr', component: bnPiHdrComponent.BnPiHdrComponent},
             {path: 'bn-pi-hdr', loadChildren: () => import('./bn_pi/bn-pi-hdr/bn-pi-hdr.module').then(m => m.BnPiHdrModule)},
-            {path: 'bn-pi-reply', loadChildren: () => import('./bn_pi/bn-pi-reply/bn-pi-reply.module').then(m => m.BnPiReplyModule)},
+            // {path: 'bn-pi-reply', loadChildren: () => import('./bn_pi/bn-pi-reply/bn-pi-reply.module').then(m => m.BnPiReplyModule)},
         ]
     }
 ];
