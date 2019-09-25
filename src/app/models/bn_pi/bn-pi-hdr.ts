@@ -17,6 +17,7 @@ export class BN_PI_HDR {
     public status: BN_PI_HDR_STATUS;
     public sent_delay_mail_datetime: Date;
     public rec_type: string;
+    public acc_remarks: string;
     public created_by: string;
     public created_date: Date;
     public last_updated_date: Date;

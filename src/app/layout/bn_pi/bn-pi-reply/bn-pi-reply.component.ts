@@ -62,6 +62,8 @@ export class BnPiReplyComponent implements OnInit {
     // mock
     this.bnpireplyloader.loadReplyForEdit(BnPiReplyDetail);
     this.passed_HDR = BnPiReplyDetail.reply_hdr;
+
+    // var newstr = this.passed_HDR.acc_remarks.replace(re, "oranges");
   }
   async submit(data: IBnPiReply) {
 

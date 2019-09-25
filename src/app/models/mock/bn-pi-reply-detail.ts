@@ -41,6 +41,11 @@ reply_detail: {
     , status: BN_PI_HDR_STATUS.InProgess
     , sent_delay_mail_datetime: null
     , rec_type: 'SERITI'
+    , acc_remarks: ` *  Payment on 19-Mar-19 Tuesday (subject to cashflow availablity) if you have filled in ''Reply'' and signed back to confirm the amount within 2 working days from the issue of this invoice.  Otherwise, it will be made in next payment date (upon receipt of completed reply).
+    *  Our payment date is on Tuesday and Friday every week.
+    *  Any change of payment method & bank information.
+       Please inform us before the payment date
+    *  Concerning our Market Forecast and our Preference, you are welcome to contact Ms. Melani or Mr. Wilson Ng for more details.`
     , created_date: new Date('2019-09-20')
     , created_by: 'nicole'
     , last_updated_date: new Date('2019-09-20')

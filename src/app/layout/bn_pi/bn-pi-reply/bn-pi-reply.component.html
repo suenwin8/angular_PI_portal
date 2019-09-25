@@ -4,7 +4,15 @@
     <!-- <div class="container content" [formGroup]="form"> -->
     <div class="">
         <form [formGroup]="form" (ngSubmit)="onSubmitV2()">
-            <!--nicole test template-->
+           <!--nicole test template-->
+           <div class="alert alert-info">
+                <strong>Remark</strong>
+                <p>{{ passed_HDR.acc_remarks }}</p>
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
+            </div>
 
             <app-pi-reply-header [passed_HDR]="passed_HDR" [group]="form.get('reply_hdr')"></app-pi-reply-header>
             <div [ngSwitch]="passed_HDR.rec_type">
@@ -18,15 +26,7 @@
                 </div>
             </div>
 
-            <!--nicole test template-->
-            <div class="alert alert-info">
-                <strong>Remark</strong>
-                <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
-            </div>
-
-            <div class="alert alert-danger">
-                <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
-            </div>
+            
             <button type="button" class="btn btn-primary" type="submit">
                 SUBMIT
             </button>

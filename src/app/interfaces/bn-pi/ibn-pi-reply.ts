@@ -39,6 +39,7 @@ export interface IBnPiHdr {
      status: BN_PI_HDR_STATUS;
      sent_delay_mail_datetime: Date;
      rec_type: string;
+     acc_remarks: string;
      created_by: string;
      created_date: Date;
      last_updated_date: Date;

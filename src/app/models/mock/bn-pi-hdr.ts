@@ -20,6 +20,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
+        , acc_remarks: ''
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -40,6 +41,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
         , rec_type: 'SERITI'
+        , acc_remarks: ''
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -60,6 +62,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
+        , acc_remarks: ''
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -80,6 +83,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
         , rec_type: 'SERITI'
+        , acc_remarks: ''
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -100,6 +104,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
+        , acc_remarks: ''
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
