@@ -1,15 +1,15 @@
 
 export enum BN_PI_HDR_STATUS {
-    InProgess = 100,
+    InProgess = 'InProgess',
 
-    Void = 200,
+    Void = 'Void',
 
-    Pending_for_Reply = 300,
+    Pending_for_Reply = 'Pending_for_Reply',
 
-    Replied = 400,
+    Replied = 'Replied',
 
-    Delayed = 500,
+    Delayed = 'Delayed',
 
-    Completed = 600
+    Completed = 'Completed'
   }
 

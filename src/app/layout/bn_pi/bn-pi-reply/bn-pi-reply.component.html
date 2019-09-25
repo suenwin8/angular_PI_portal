@@ -1,48 +1,91 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Reply PI'" [icon]="'fa-desktop'"></app-page-header>
-    <div class="alert alert-info">
-        <strong>Remark</strong>
-        <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
-    </div>
 
-    <div class="alert alert-danger">
-        <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
-    </div>
-    <div class="row">
-        <div class="col-lg-9" >
-            <form action="" role="form"  [formGroup]="submitform" (ngSubmit)="onSubmit(submitform.value)">
+    <!-- <div class="container content" [formGroup]="form"> -->
+    <div class="">
+        <form [formGroup]="form" (ngSubmit)="onSubmitV2()">
+            <!--nicole test template-->
+
+            <app-pi-reply-header [passed_HDR]="passed_HDR" [group]="form.get('reply_hdr')"></app-pi-reply-header>
+            <div [ngSwitch]="passed_HDR.rec_type">
+                <div *ngSwitchCase="'SERITI'">
+                    SERITI
+                    <app-seriti [group]="form.get('reply_detail')"></app-seriti>
+                </div>
+                <div *ngSwitchCase="'BIRDNEST'">
+                    BIRDNEST
+                    <app-birdnest [group]="form.get('reply_detail')"></app-birdnest>
+                </div>
+            </div>
+
+            <!--nicole test template-->
+            <div class="alert alert-info">
+                <strong>Remark</strong>
+                <p>[acc_remark] need to replace within 2 working days to on or before @working_date_str</p>
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
+            </div>
+            <button type="button" class="btn btn-primary" type="submit">
+                SUBMIT
+            </button>
+        </form>
+        <!-- <div class="row">
+        <div class="col-lg-9">
+            <form action="" role="form" [formGroup]="submitform" (ngSubmit)="onSubmit(submitform.value)">
                 <fieldset class="form-group" disabled="">
                     <label for="">PI No.:</label>
-                    <input class="form-control" value="{{passed_HDR.txn_no}}" name="txn_no" id="txn_no"/>
+                    <input class="form-control" value="{{ passed_HDR.txn_no }}" name="txn_no" id="txn_no" />
                 </fieldset>
 
                 <fieldset class="form-group" disabled="">
                     <label>Stock Received Date:</label>
-                    <input class="form-control" value="{{passed_HDR.received_date | date: 'yyyy-MMM-dd'}}" id="received_date" name="received_date" />
+                    <input
+                        class="form-control"
+                        value="{{ passed_HDR.received_date | date: 'yyyy-MMM-dd' }}"
+                        id="received_date"
+                        name="received_date"
+                    />
                 </fieldset>
-                 <fieldset class="form-group" disabled="">
+                <fieldset class="form-group" disabled="">
                     <label>Notice PI Reply Date:</label>
-                    <input class="form-control" value="{{passed_HDR.notice_pi_reply_date | date:'yyyy-MMM-dd'}}" id="notice_pi_reply_date" name="notice_pi_reply_date" />
+                    <input
+                        class="form-control"
+                        value="{{ passed_HDR.notice_pi_reply_date | date: 'yyyy-MMM-dd' }}"
+                        id="notice_pi_reply_date"
+                        name="notice_pi_reply_date"
+                    />
                 </fieldset>
                 <fieldset class="form-group" disabled="">
                     <label>Airway Bill#</label>
-                    <input class="form-control" value="{{passed_HDR.airway_bill}}" id="airway_bill" name="airway_bill" />
+                    <input class="form-control" value="{{ passed_HDR.airway_bill }}" id="airway_bill" name="airway_bill" />
                 </fieldset>
                 <fieldset class="form-group" disabled="">
                     <label>Reply Status:</label>
-                    <input class="form-control" value="{{passed_HDR.rc_status}}" id="rc_status" name="rc_status" />
+                    <input class="form-control" value="{{ passed_HDR.rc_status }}" id="rc_status" name="rc_status" />
                 </fieldset>
                 <fieldset class="form-group" disabled="">
                     <label>Reply Date:</label>
-                    <input class="form-control" value="{{passed_HDR.actual_reply_date| date:'yyyy-MMM-dd'}}" id="actual_reply_date" name="actual_reply_date" />
-                </fieldset>                
+                    <input
+                        class="form-control"
+                        value="{{ passed_HDR.actual_reply_date | date: 'yyyy-MMM-dd' }}"
+                        id="actual_reply_date"
+                        name="actual_reply_date"
+                    />
+                </fieldset>
 
                 <fieldset class="form-group">
                     <label>1. How do you think about the prices offered?</label>
                     <br />
                     <label>(i) Large and Beautiful BirdNest</label>
                     <div class="form-group">
-                        <select class="form-control" id="large_beautiful_birdnests_mark" name="large_beautiful_birdnests_mark"  formControlName="large_beautiful_birdnests_mark">
+                        <select
+                            class="form-control"
+                            id="large_beautiful_birdnests_mark"
+                            name="large_beautiful_birdnests_mark"
+                            formControlName="large_beautiful_birdnests_mark"
+                        >
                             <option disabled>--Please choose--</option>
                             <option value="5">Good</option>
                             <option value="4">Fair</option>
@@ -56,7 +99,12 @@
                 <fieldset class="form-group">
                     <label>(ii) Broken, Feet and Mess</label>
                     <div class="form-group">
-                        <select class="form-control" id="broken_birdnests_mark" name="broken_birdnests_mark"  formControlName="broken_birdnests_mark">
+                        <select
+                            class="form-control"
+                            id="broken_birdnests_mark"
+                            name="broken_birdnests_mark"
+                            formControlName="broken_birdnests_mark"
+                        >
                             <option disabled>--Please choose--</option>
                             <option value="5">Good</option>
                             <option value="4">Fair</option>
@@ -75,7 +123,7 @@
                                 Mix(Mixed)
                             </div>
                             <div class="col-sm">
-                                <input class="form-control" id="mix_price" name="mix_price"  formControlName="mix_price"/>
+                                <input class="form-control" id="mix_price" name="mix_price" formControlName="mix_price" />
                             </div>
                         </div>
                         <div class="row">
@@ -83,7 +131,12 @@
                                 BULU BERAT (重毛)
                             </div>
                             <div class="col-sm">
-                                <input class="form-control" id="bulu_berat_price" name="bulu_berat_price" formControlName="bulu_berat_price" />
+                                <input
+                                    class="form-control"
+                                    id="bulu_berat_price"
+                                    name="bulu_berat_price"
+                                    formControlName="bulu_berat_price"
+                                />
                             </div>
                         </div>
                         <div class="row">
@@ -91,7 +144,12 @@
                                 BULU SEDANG (中毛)
                             </div>
                             <div class="col-sm">
-                                <input class="form-control" id="bulu_sedang_price" name="bulu_sedang_price" formControlName="bulu_sedang_price" />
+                                <input
+                                    class="form-control"
+                                    id="bulu_sedang_price"
+                                    name="bulu_sedang_price"
+                                    formControlName="bulu_sedang_price"
+                                />
                             </div>
                         </div>
                         <div class="row">
@@ -99,7 +157,12 @@
                                 BULU RINGAN (輕毛)
                             </div>
                             <div class="col-sm">
-                                <input class="form-control" id="bulu_ringan_price" name="bulu_ringan_price" formControlName="bulu_ringan_price" />
+                                <input
+                                    class="form-control"
+                                    id="bulu_ringan_price"
+                                    name="bulu_ringan_price"
+                                    formControlName="bulu_ringan_price"
+                                />
                             </div>
                         </div>
                     </div>
@@ -108,14 +171,18 @@
                 <fieldset class="form-group">
                     <label>2(b) Market Information (if any):</label>
                     <div class="form-group">
-                        <input class="form-control" id="market_information" name="market_information" formControlName="market_information"/>
+                        <input
+                            class="form-control"
+                            id="market_information"
+                            name="market_information"
+                            formControlName="market_information"
+                        />
                     </div>
-                </fieldset> 
+                </fieldset>
 
                 <button class="button" type="submit">Submit</button>
-
-
             </form>
         </div>
+    </div> -->
     </div>
 </div>

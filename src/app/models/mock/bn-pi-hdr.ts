@@ -19,7 +19,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , pi_ac_status: PI_AC_STATUS.Pending
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
-        , rec_type: '洞燕'
+        , rec_type: 'BIRDNEST'
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -39,7 +39,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , pi_ac_status: PI_AC_STATUS.Pending
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
-        , rec_type: '洞燕'
+        , rec_type: 'SERITI'
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -59,7 +59,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , pi_ac_status: PI_AC_STATUS.Pending
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
-        , rec_type: '洞燕'
+        , rec_type: 'BIRDNEST'
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -79,7 +79,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , pi_ac_status: PI_AC_STATUS.Pending
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
-        , rec_type: '洞燕'
+        , rec_type: 'SERITI'
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')
@@ -99,7 +99,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , pi_ac_status: PI_AC_STATUS.Pending
         , status: BN_PI_HDR_STATUS.InProgess
         , sent_delay_mail_datetime: null
-        , rec_type: '洞燕'
+        , rec_type: 'BIRDNEST'
         , created_date: new Date('2019-09-20')
         , created_by: 'nicole'
         , last_updated_date: new Date('2019-09-20')

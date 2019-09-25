@@ -1,8 +1,8 @@
 export enum RC_STATUS {
-    Created = 100,
+    Created = 'Created',
 
-    Ready = 200,
+    Ready = 'Ready',
 
-    Sent = 300
+    Sent = 'Sent'
   }
 

@@ -1,0 +1,52 @@
+<p>
+  seriti works!
+</p>
+<div class="formGroup" [formGroup]="group">
+    <fieldset class="form-group">
+        <label>1. How do you think about the prices offered?</label> 
+        <div class="form-group">
+            <select
+                class="form-control"
+                id="seriti_mark"
+                name="seriti_mark"
+                formControlName="seriti_mark"
+            >
+                <option disabled>--Please choose--</option>
+                <option value="5">Good</option>
+                <option value="4">Fair</option>
+                <option value="3">A little Lower</option>
+                <option value="2">Too low</option>
+                <option value="1">Loss Money</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>2(a) Please update us the current price of dry raw material (Rp/kg)</label>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm">
+                   Pinus
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="pinus_price" name="pinus_price" formControlName="pinus_price" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    Cemara
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="cemara_price" name="cemara_price" formControlName="cemara_price" />
+                </div>
+            </div>            
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>2(b) Market Information (if any):</label>
+        <div class="form-group">
+            <input class="form-control" id="market_information" name="market_information" formControlName="market_information" />
+        </div>
+    </fieldset>
+</div>

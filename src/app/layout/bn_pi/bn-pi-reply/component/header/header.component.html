@@ -1,0 +1,41 @@
+<p>
+    header works!
+</p>
+
+<div class="formGroup" [formGroup]="group">
+    <fieldset class="form-group">
+        <label for="">PI No.:</label>
+        <input class="form-control" value="{{ passed_HDR.txn_no }}"  formControlName="txn_no"/>
+    </fieldset>
+
+     <fieldset class="form-group" disabled="">
+        <label>Stock Received Date:</label>
+        <input class="form-control" value="{{ passed_HDR.received_date | date: 'yyyy-MMM-dd' }}" id="received_date" name="received_date" />
+    </fieldset>
+    <fieldset class="form-group" disabled="">
+        <label>Notice PI Reply Date:</label>
+        <input
+            class="form-control"
+            value="{{ passed_HDR.notice_pi_reply_date | date: 'yyyy-MMM-dd' }}"
+            id="notice_pi_reply_date"
+            name="notice_pi_reply_date"
+        />
+    </fieldset>
+    <fieldset class="form-group" disabled="">
+        <label>Airway Bill#</label>
+        <input class="form-control" value="{{ passed_HDR.airway_bill }}" id="airway_bill" name="airway_bill" />
+    </fieldset>
+    <fieldset class="form-group" disabled="">
+        <label>Reply Status:</label>
+        <input class="form-control" value="{{ passed_HDR.rc_status }}" id="rc_status" name="rc_status" />
+    </fieldset>
+    <fieldset class="form-group" disabled="">
+        <label>Reply Date:</label>
+        <input
+            class="form-control"
+            value="{{ passed_HDR.actual_reply_date | date: 'yyyy-MMM-dd' }}"
+            id="actual_reply_date"
+            name="actual_reply_date"
+        />
+    </fieldset> 
+</div>

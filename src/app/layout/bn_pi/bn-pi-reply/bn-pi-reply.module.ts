@@ -4,17 +4,21 @@ import { BnPiReplyComponent } from './bn-pi-reply.component';
 import { BnPiReplyRoutingModule } from './bn-pi-reply-routing.module';
 import { PageHeaderModule } from './../../../shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// nicole
 // in order to use two-way data binding for form inputs you need to import the FormsModule package in your Angular module.
- import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './component/header/header.component';
+import { BirdnestComponent } from './component/birdnest/birdnest.component';
+import { SeritiComponent } from './component/seriti/seriti.component';
 
 @NgModule({
   imports: [CommonModule
     , BnPiReplyRoutingModule
     , PageHeaderModule
     , NgbModule
-     , FormsModule
-     , ReactiveFormsModule
+    , FormsModule
+    , ReactiveFormsModule
   ],
-  declarations: [BnPiReplyComponent]
+  declarations: [BnPiReplyComponent, HeaderComponent, BirdnestComponent, SeritiComponent]
 })
 export class BnPiReplyModule { }

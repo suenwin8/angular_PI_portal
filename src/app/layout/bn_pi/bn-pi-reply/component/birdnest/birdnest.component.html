@@ -1,0 +1,84 @@
+<p>
+    birdnest works!
+</p>
+<div class="formGroup" [formGroup]="group">
+    <fieldset class="form-group">
+        <label>1. How do you think about the prices offered?</label>
+        <br />
+        <label>(i) Large and Beautiful BirdNest</label>
+        <div class="form-group">
+            <select
+                class="form-control"
+                id="large_beautiful_birdnests_mark"
+                name="large_beautiful_birdnests_mark"
+                formControlName="large_beautiful_birdnests_mark"
+            >
+                <option disabled>--Please choose--</option>
+                <option value="5">Good</option>
+                <option value="4">Fair</option>
+                <option value="3">A little Lower</option>
+                <option value="2">Too low</option>
+                <option value="1">Loss Money</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>(ii) Broken, Feet and Mess</label>
+        <div class="form-group">
+            <select class="form-control" id="broken_birdnests_mark" name="broken_birdnests_mark" formControlName="broken_birdnests_mark">
+                <option disabled>--Please choose--</option>
+                <option value="5">Good</option>
+                <option value="4">Fair</option>
+                <option value="3">A little Lower</option>
+                <option value="2">Too low</option>
+                <option value="1">Loss Money</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>2(a) Please update us the current price of dry raw material (Rp/kg)</label>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm">
+                    Mix(Mixed)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="mix_price" name="mix_price" formControlName="mix_price" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    BULU BERAT (重毛)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_berat_price" name="bulu_berat_price" formControlName="bulu_berat_price" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    BULU SEDANG (中毛)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_sedang_price" name="bulu_sedang_price" formControlName="bulu_sedang_price" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    BULU RINGAN (輕毛)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_ringan_price" name="bulu_ringan_price" formControlName="bulu_ringan_price" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>2(b) Market Information (if any):</label>
+        <div class="form-group">
+            <input class="form-control" id="market_information" name="market_information" formControlName="market_information" />
+        </div>
+    </fieldset>
+</div>
