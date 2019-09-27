@@ -13,6 +13,7 @@ import { BnPiReplyComponent } from '../bn-pi-reply/bn-pi-reply.component';
 import { HeaderComponent } from '../bn-pi-reply/component/header/header.component';
 import { BirdnestComponent } from '../bn-pi-reply/component/birdnest/birdnest.component';
 import { SeritiComponent } from '../bn-pi-reply/component/seriti/seriti.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   imports: [CommonModule
     , BnPiHdrRoutingModule
@@ -29,5 +30,6 @@ import { SeritiComponent } from '../bn-pi-reply/component/seriti/seriti.componen
     , BirdnestComponent
     , SeritiComponent
   ]
+  , providers: [DatePipe]
 })
 export class BnPiHdrModule { }

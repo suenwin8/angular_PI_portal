@@ -15,9 +15,9 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , actual_reply_date: null
         , expected_payment_date: null
         , is_delayed: false
-        , rc_status: RC_STATUS.Created
-        , pi_ac_status: PI_AC_STATUS.Pending
-        , status: BN_PI_HDR_STATUS.InProgess
+        , rc_status: 'Sent'
+        , pi_ac_status: 'Sent'
+        , status: 'Pending Reply'
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
         , acc_remarks: ''
@@ -36,9 +36,9 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , actual_reply_date: null
         , expected_payment_date: null
         , is_delayed: false
-        , rc_status: RC_STATUS.Created
-        , pi_ac_status: PI_AC_STATUS.Pending
-        , status: BN_PI_HDR_STATUS.InProgess
+        , rc_status: 'Sent'
+        , pi_ac_status: 'Sent'
+        , status: 'Pending Reply'
         , sent_delay_mail_datetime: null
         , rec_type: 'SERITI'
         , acc_remarks: ''
@@ -57,9 +57,9 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , actual_reply_date: null
         , expected_payment_date: null
         , is_delayed: false
-        , rc_status: RC_STATUS.Created
-        , pi_ac_status: PI_AC_STATUS.Pending
-        , status: BN_PI_HDR_STATUS.InProgess
+        , rc_status: 'Sent'
+        , pi_ac_status: 'Sent'
+        , status: 'Pending Reply'
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
         , acc_remarks: ''
@@ -78,9 +78,9 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , actual_reply_date: null
         , expected_payment_date: null
         , is_delayed: false
-        , rc_status: RC_STATUS.Created
-        , pi_ac_status: PI_AC_STATUS.Pending
-        , status: BN_PI_HDR_STATUS.InProgess
+        , rc_status: 'Sent'
+        , pi_ac_status: 'Sent'
+        , status: 'Pending Reply'
         , sent_delay_mail_datetime: null
         , rec_type: 'SERITI'
         , acc_remarks: ''
@@ -99,9 +99,9 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , actual_reply_date: null
         , expected_payment_date: null
         , is_delayed: false
-        , rc_status: RC_STATUS.Created
-        , pi_ac_status: PI_AC_STATUS.Pending
-        , status: BN_PI_HDR_STATUS.InProgess
+        , rc_status: 'Sent'
+        , pi_ac_status: 'Sent'
+        , status: 'Pending Reply'
         , sent_delay_mail_datetime: null
         , rec_type: 'BIRDNEST'
         , acc_remarks: ''

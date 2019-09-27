@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
 import { BirdnestComponent } from './component/birdnest/birdnest.component';
 import { SeritiComponent } from './component/seriti/seriti.component';
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   imports: [CommonModule
     , BnPiReplyRoutingModule
@@ -20,5 +20,6 @@ import { SeritiComponent } from './component/seriti/seriti.component';
     , ReactiveFormsModule
   ],
   declarations: [BnPiReplyComponent, HeaderComponent, BirdnestComponent, SeritiComponent]
+  , providers: [DatePipe]
 })
 export class BnPiReplyModule { }

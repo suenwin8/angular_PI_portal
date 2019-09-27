@@ -34,9 +34,9 @@ export interface IBnPiHdr {
      actual_reply_date: Date;
      expected_payment_date: Date;
      is_delayed: boolean;
-     rc_status: RC_STATUS;
-     pi_ac_status: PI_AC_STATUS;
-     status: BN_PI_HDR_STATUS;
+     rc_status: string;
+     pi_ac_status: string;
+     status: string;
      sent_delay_mail_datetime: Date;
      rec_type: string;
      acc_remarks: string;
@@ -50,3 +50,11 @@ export interface IBnPiHdr {
     reply_detail?: IBnPiReplyDetail;
     reply_hdr: IBnPiHdr;
   }
+
+
+  // API
+  export interface IPOST_GetByTxnNo {
+     txn_no: string;
+     supplier_login_account_id: number;
+   }
+  // API

@@ -4,10 +4,11 @@
     <!-- <div class="container content" [formGroup]="form"> -->
     <div class="">
         <form [formGroup]="form" (ngSubmit)="onSubmitV2()">
-           <!--nicole test template-->
-           <div class="alert alert-info">
-                <strong>Remark</strong>
-                <p>{{ passed_HDR.acc_remarks }}</p>
+           <!--nicole test template-->           
+            <div class="card bg-light mb-3">
+                <div class="card-header">Remark</div>
+                <div class="card-body" [innerHTML]="passed_HDR.acc_remarks">                   
+                </div> 
             </div>
 
             <div class="alert alert-danger">

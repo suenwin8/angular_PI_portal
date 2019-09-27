@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { IBnPiReply } from 'src/app/interfaces/bn-pi/ibn-pi-reply';
+import { IBnPiReply, IPOST_GetByTxnNo } from 'src/app/interfaces/bn-pi/ibn-pi-reply';
+import { RepositoryService } from '../environment/repository.service';
+import { ErrorHandlerService } from '../environment/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BnPiReplyService {
   public form: FormGroup;
-  constructor(private fb: FormBuilder) {
+  public result: any;
+  public errorMessage = '';
+
+  constructor(private fb: FormBuilder
+    , private repo: RepositoryService
+    , private errorHandler: ErrorHandlerService) {
     this.form = this.fb.group({
       reply_detail: this.fb.group({
         large_beautiful_birdnests_mark: new FormControl()
@@ -46,5 +53,26 @@ export class BnPiReplyService {
       reply_detail: data.reply_detail
     };
     return reply;
+  }
+
+  public GetByReplyTxnNo(data: IPOST_GetByTxnNo) {
+
+    this.repo.post('api/BNPIReply/GetByTxnNo', data)
+      .subscribe(res => {
+        console.log(res);
+      },
+        (error) => {
+          this.errorHandler.handleError(error);
+          this.errorMessage = this.errorHandler.errorMessage;
+        });
+
+    return this.result;
+  }
+
+  public GetByReplyTxnNoV2(data: IPOST_GetByTxnNo) {
+
+    return this.repo.post('api/BNPIReply/GetByTxnNo', data);
+
+
   }
 }

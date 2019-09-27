@@ -12,9 +12,9 @@ export class BN_PI_HDR {
     public actual_reply_date: Date;
     public expected_payment_date: Date;
     public is_delayed: boolean;
-    public rc_status: RC_STATUS;
-    public pi_ac_status: PI_AC_STATUS;
-    public status: BN_PI_HDR_STATUS;
+    public rc_status: string;
+    public pi_ac_status: string;
+    public status: string;
     public sent_delay_mail_datetime: Date;
     public rec_type: string;
     public acc_remarks: string;

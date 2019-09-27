@@ -12,6 +12,8 @@ import { AuthGuard } from './shared';
 // import { BnPiHdrComponent } from './layout/bn_pi/bn-pi-hdr/bn-pi-hdr.component';
 
 // import { BnPiReplyComponent } from './layout/bn_pi/bn-pi-reply/bn-pi-reply.component';
+import { EnvironmentUrlService } from './services/environment/environment-url.service';
+import { ErrorHandlerService } from './services/environment/error-handler.service';
 
 @NgModule({
     imports: [
@@ -25,7 +27,10 @@ import { AuthGuard } from './shared';
     declarations: [AppComponent
         // , BnPiHdrComponent, BnPiReplyComponent
     ],
-    providers: [AuthGuard],
+    providers: [AuthGuard
+        , EnvironmentUrlService
+        , ErrorHandlerService
+    ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
