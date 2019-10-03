@@ -14,7 +14,7 @@ export class RepositoryService {
   }
 
   public post(route: string, body) {
-    return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress), body, this.generateHeaders());
+    return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress), body, this.generateHeaders() );
   }
 
   public update(route: string, body) {

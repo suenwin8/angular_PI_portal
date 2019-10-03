@@ -9,11 +9,14 @@
                 <div class="card-header">Remark</div>
                 <div class="card-body" [innerHTML]="passed_HDR.acc_remarks">                   
                 </div> 
-            </div>
+            </div> 
 
             <div class="alert alert-danger">
                 <strong>Item 1 to 2 must be filled in details, otherwise payment will be delayed for 1 week per item missing.</strong>
             </div>
+
+
+            <!-- response_dtl: {{response_dtl.Response.last_updated_by}} -->
 
             <app-pi-reply-header [passed_HDR]="passed_HDR" [group]="form.get('reply_hdr')"></app-pi-reply-header>
             <div [ngSwitch]="passed_HDR.rec_type">
@@ -25,7 +28,7 @@
                     BIRDNEST
                     <app-birdnest [group]="form.get('reply_detail')"></app-birdnest>
                 </div>
-            </div>
+            </div> 
 
             
             <button type="button" class="btn btn-primary" type="submit">

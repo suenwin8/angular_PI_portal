@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { IBnPiReply, IPOST_GetByTxnNo } from 'src/app/interfaces/bn-pi/ibn-pi-reply';
+import { IBnPiReply, IPOST_GetByTxnNo, IBnPiReplyDetail, IBnPiHdr, IPOST_INSERT_PIReplyDetail } from 'src/app/interfaces/bn-pi/ibn-pi-reply';
 import { RepositoryService } from '../environment/repository.service';
 import { ErrorHandlerService } from '../environment/error-handler.service';
+// nicole 20190927
+import { map } from 'rxjs/operators';
+import { APIResponse } from 'src/app/models/response/apiresponse';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +19,8 @@ export class BnPiReplyService {
 
   constructor(private fb: FormBuilder
     , private repo: RepositoryService
-    , private errorHandler: ErrorHandlerService) {
+    , private errorHandler: ErrorHandlerService
+  ) {
     this.form = this.fb.group({
       reply_detail: this.fb.group({
         large_beautiful_birdnests_mark: new FormControl()
@@ -55,24 +61,21 @@ export class BnPiReplyService {
     return reply;
   }
 
-  public GetByReplyTxnNo(data: IPOST_GetByTxnNo) {
 
-    this.repo.post('api/BNPIReply/GetByTxnNo', data)
-      .subscribe(res => {
-        console.log(res);
-      },
-        (error) => {
-          this.errorHandler.handleError(error);
-          this.errorMessage = this.errorHandler.errorMessage;
-        });
-
-    return this.result;
-  }
 
   public GetByReplyTxnNoV2(data: IPOST_GetByTxnNo) {
-
     return this.repo.post('api/BNPIReply/GetByTxnNo', data);
-
-
   }
+
+  public GetByHdrTxnNoV2(data: IPOST_GetByTxnNo) {
+
+    return this.repo.post('api/BNPIHdr/GetByTxnNo', data);
+  }
+
+  public InsertPIReplyDetail(data: IPOST_INSERT_PIReplyDetail) {
+
+    return this.repo.post('api/BNPIReply/InsertPIReplyDetail', data);
+  }
+
+
 }

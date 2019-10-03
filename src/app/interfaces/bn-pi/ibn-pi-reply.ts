@@ -57,4 +57,9 @@ export interface IBnPiHdr {
      txn_no: string;
      supplier_login_account_id: number;
    }
+
+   export interface IPOST_INSERT_PIReplyDetail {
+     reply_detail: IBnPiReplyDetail;
+     supplier_login_account_id: number;
+   }
   // API

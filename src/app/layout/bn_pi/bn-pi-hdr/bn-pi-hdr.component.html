@@ -20,7 +20,10 @@
                       <button class='btn btn-primary' (click)="onView(hdr.txn_no)"> View</button>
                   </div>
                   <div class="col-sm">
-                      <button class='btn btn-success' (click)="onSelect(hdr.txn_no)"> Edit</button>
+                      <!-- <button class='btn btn-success' (click)="onSelect(hdr.txn_no)"> Edit</button> -->
+                      <a [routerLink]="['bn-pi-reply/', hdr.txn_no]">
+                        <span class="btn btn-primary">Edit</span>
+                      </a>
                   </div>
               </div>
             

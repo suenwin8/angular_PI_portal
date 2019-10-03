@@ -10,6 +10,7 @@ export class BnPiReplyLoaderService {
   constructor(private bnpireplyservice: BnPiReplyService) { }
 
   loadReplyForEdit(data: IBnPiReply): void {
+    console.log(data);
     this.bnpireplyservice.form.patchValue({
       reply_detail: {
         ...data.reply_detail

@@ -6,7 +6,7 @@ import { BN_PI_HDR_STATUS } from '../bn_pi/bn-pi-hdr-status';
 
 export const BN_PI_HDRS: BN_PI_HDR[] = [
     {
-        txn_no: '24500'
+        txn_no: '24912'
         , supplier_code: '00001'
         , notice_pi_reply_date: new Date('2019-09-25')
         , received_date: new Date('2019-09-01')
@@ -27,7 +27,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , last_updated_by: 'nicole'
       },
       {
-        txn_no: '24501'
+        txn_no: '25056'
         , supplier_code: '00001'
         , notice_pi_reply_date: new Date('2019-09-25')
         , received_date: new Date('2019-09-01')
@@ -48,7 +48,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , last_updated_by: 'nicole'
       },
       {
-        txn_no: '24502'
+        txn_no: '25131'
         , supplier_code: '00002'
         , notice_pi_reply_date: new Date('2019-09-25')
         , received_date: new Date('2019-09-01')
@@ -69,7 +69,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , last_updated_by: 'nicole'
       },
       {
-        txn_no: '24503'
+        txn_no: '25363'
         , supplier_code: '00003'
         , notice_pi_reply_date: new Date('2019-09-25')
         , received_date: new Date('2019-09-01')
@@ -90,7 +90,7 @@ export const BN_PI_HDRS: BN_PI_HDR[] = [
         , last_updated_by: 'nicole'
       },
       {
-        txn_no: '24504'
+        txn_no: '25364'
         , supplier_code: '00004'
         , notice_pi_reply_date: new Date('2019-09-25')
         , received_date: new Date('2019-09-01')
