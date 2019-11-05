@@ -14,6 +14,8 @@ import { HeaderComponent } from '../bn-pi-reply/component/header/header.componen
 import { BirdnestComponent } from '../bn-pi-reply/component/birdnest/birdnest.component';
 import { SeritiComponent } from '../bn-pi-reply/component/seriti/seriti.component';
 import { DatePipe } from '@angular/common';
+// nicole 20191105
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   imports: [CommonModule
     , BnPiHdrRoutingModule
@@ -22,6 +24,7 @@ import { DatePipe } from '@angular/common';
     , NgbModule
     , FormsModule
     , ReactiveFormsModule
+    , DataTablesModule
   ],
   declarations: [
     BnPiHdrComponent

@@ -41,7 +41,8 @@ export class BnPiReplyComponent implements OnInit {
   response: APIResponse<IBnPiHdr>;
   public response_dtl: APIResponse<IBnPiReplyDetail>;
   // hardcode supplier id
-  supplier_login_account_id_val: 1;
+  supplier_login_account_id_val = 1 ;
+
 
   url_txn_no: string;
 
@@ -83,7 +84,7 @@ export class BnPiReplyComponent implements OnInit {
       console.log('this.url_txn_no : ' + this.url_txn_no);
     });
     const postdata: IPOST_GetByTxnNo = { txn_no: this.url_txn_no, supplier_login_account_id: this.supplier_login_account_id_val };
-
+console.log(postdata);
     // this.bnpireplyservice.GetByHdrTxnNoV2(postdata).subscribe((res: APIResponse<IBnPiHdr>) => {
     //   if (res['IsSuccess']) {
     //     this.response = res;

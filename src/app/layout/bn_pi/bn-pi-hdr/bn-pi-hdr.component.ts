@@ -4,6 +4,8 @@ import {BN_PI_HDR} from '../../../models/bn_pi/bn-pi-hdr';
 import { BN_PI_HDRS } from '../../../models/mock/bn-pi-hdr';
 import { Router } from '@angular/router';
 import { routerTransition } from '../../../router.animations';
+// nicole 20191105
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-bn-pi-hdr',
@@ -18,10 +20,17 @@ export class BnPiHdrComponent implements OnInit {
   hdr_list = BN_PI_HDRS;
   selected_HDR: BN_PI_HDR;
 
+// nicole datatable
+dtOptions: DataTables.Settings = {};
 
   constructor (private router: Router) { }
 
   ngOnInit() {
+
+    // nicole datatable
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
   }
 
   public onSelect(hdr: BN_PI_HDR): void {

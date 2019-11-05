@@ -6,6 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
 
 import { AppRoutingModule } from './app-routing.module';
+
+// nicole 20191105
+import { DataTablesModule } from 'angular-datatables';
+
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
@@ -15,17 +19,20 @@ import { AuthGuard } from './shared';
 import { EnvironmentUrlService } from './services/environment/environment-url.service';
 import { ErrorHandlerService } from './services/environment/error-handler.service';
 
+
+
 @NgModule({
+    declarations: [AppComponent
+        // , BnPiHdrComponent, BnPiReplyComponent
+    ],
     imports: [
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule
-    ],
-    declarations: [AppComponent
-        // , BnPiHdrComponent, BnPiReplyComponent
+        AppRoutingModule,
+        DataTablesModule
     ],
     providers: [AuthGuard
         , EnvironmentUrlService
