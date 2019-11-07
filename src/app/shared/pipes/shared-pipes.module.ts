@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @NgModule({
     imports: [
@@ -7,4 +7,10 @@ import { CommonModule } from '@angular/common';
     ],
     declarations: []
 })
-export class SharedPipesModule { }
+export class SharedPipesModule {
+    datePipe: any;
+
+    public transformDate(mydate: DatePipe) {
+        return this.datePipe.transform(mydate, 'yyyy MMM dd'); // whatever format you need.
+      }
+}

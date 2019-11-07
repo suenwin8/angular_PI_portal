@@ -27,9 +27,9 @@ import { DataTablesModule } from 'angular-datatables';
     , DataTablesModule
   ],
   declarations: [
-    BnPiHdrComponent
-    , BnPiReplyComponent
-    , HeaderComponent
+     BnPiHdrComponent
+     , BnPiReplyComponent
+     , HeaderComponent
     , BirdnestComponent
     , SeritiComponent
   ]

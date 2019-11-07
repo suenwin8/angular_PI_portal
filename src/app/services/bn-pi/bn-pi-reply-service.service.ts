@@ -77,5 +77,14 @@ export class BnPiReplyService {
     return this.repo.post('api/BNPIReply/InsertPIReplyDetail', data);
   }
 
+  // hdr api
+
+  public GetListByTxnNo(data: IPOST_GetByTxnNo) {
+
+    return this.repo.post('api/BNPIHdr/GetListByTxnNo', data);
+  }
+
+
+
 
 }

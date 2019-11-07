@@ -12,9 +12,10 @@ const routes: Routes = [
     { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
     { path: '**', redirectTo: 'not-found' }
 ];
-
+// nicole 20191106 add enableTracing
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    // imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+    imports: [RouterModule.forRoot(routes, { enableTracing: false, onSameUrlNavigation: 'reload' })],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}

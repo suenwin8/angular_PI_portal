@@ -30,6 +30,8 @@
     "core-js": "2.5.7",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
+    "datatables.net-responsive": "^2.2.3",
+    "datatables.net-responsive-dt": "^2.2.3",
     "font-awesome": "4.7.0",
     "jquery": "^3.4.1",
     "ng2-charts": "2.3.0",
