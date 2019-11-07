@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, Renderer, AfterViewInit, Inject, ViewChild, OnDestroy, ViewChildren, QueryList } from '@angular/core';
 import { BN_PI_HDR } from '../../../models/bn_pi/bn-pi-hdr';
 // nicole mock
 import { BN_PI_HDRS } from '../../../models/mock/bn-pi-hdr';
@@ -12,6 +12,8 @@ import { DatePipe } from '@angular/common';
 import { IPOST_GetByTxnNo } from 'src/app/interfaces/bn-pi/ibn-pi-reply';
 import { filter } from 'rxjs/operators';
 import { BnPiReplyService } from 'src/app/services/bn-pi/bn-pi-reply-service.service';
+import { DataTableDirective } from 'angular-datatables';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -23,8 +25,10 @@ import { BnPiReplyService } from 'src/app/services/bn-pi/bn-pi-reply-service.ser
     BnPiReplyService
   ]
 })
-export class BnPiHdrComponent implements AfterViewInit, OnInit {
-
+export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
+  // @ViewChild(DataTableDirective, {static: false})
+  @ViewChild(DataTableDirective, {static: false}) datatableElement: DataTableDirective;
+  dtElements: QueryList<DataTableDirective>;
   title = 'View PI History';
   // nicole mock
   hdr_list = BN_PI_HDRS;
@@ -32,7 +36,7 @@ export class BnPiHdrComponent implements AfterViewInit, OnInit {
 
   // nicole datatable
   dtOptions: DataTables.Settings = {};
-  // public listOfbnpihdr: APIResponse<BN_PI_HDR[]>;
+  dtTrigger: Subject<any> = new Subject();
   public listOfbnpihdr: BN_PI_HDR[];
   map = new Map<string, string>();
   status_para = '';
@@ -72,8 +76,6 @@ export class BnPiHdrComponent implements AfterViewInit, OnInit {
       this.Post_getlistofhdr(postdata, mapped_status);
     });
     // status_para = this.map.get(this._activatedroute.snapshot.params.status);
-
-
     // console.log('url status: ' + this.map.get(this._activatedroute.snapshot.params.status));
     // console.log('url status: ' + mapped_status);
 
@@ -100,6 +102,11 @@ export class BnPiHdrComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
+    // nicole 20191107 rerender datatable
+     this.dtTrigger.next();
+
+
+
     this.renderer.listenGlobal('document', 'click', (event) => {
       if (event.target.hasAttribute('view-reply-id')) {
         // console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
@@ -107,11 +114,25 @@ export class BnPiHdrComponent implements AfterViewInit, OnInit {
       }
     });
   }
+  // nicole 20191107
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+  rerender(): void {
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      // Destroy the table first
+      dtInstance.destroy();
+      // Call the dtTrigger to rerender again
+      this.dtTrigger.next();
+    });
+  }
 
   Post_getlistofhdr(postdata: IPOST_GetByTxnNo, status: string) {
+    // nicole 20191107
     const that = this;
     console.log('jump to post_getlistofhdr');
-
+    // this.rerender();
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
         this.bnpireplyservice.GetListByTxnNo(postdata).subscribe((data: APIResponse<BN_PI_HDR[]>) => {
@@ -196,8 +217,61 @@ export class BnPiHdrComponent implements AfterViewInit, OnInit {
       ,
       // Use this attribute to enable the responsive extension
       responsive: true
-
+      , order: [[0, 'desc']]
     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // nicole datatable
     // const that = this;
