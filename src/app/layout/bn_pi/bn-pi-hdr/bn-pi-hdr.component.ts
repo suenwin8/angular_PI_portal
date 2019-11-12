@@ -27,9 +27,11 @@ import { Subject } from 'rxjs';
 })
 export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
   // @ViewChild(DataTableDirective, {static: false})
-  @ViewChild(DataTableDirective, {static: false}) datatableElement: DataTableDirective;
+  navigationSubscription;
+  @ViewChild(DataTableDirective, { static: false }) datatableElement: DataTableDirective;
   dtElements: QueryList<DataTableDirective>;
   title = 'View PI History';
+  temp_text = '';
   // nicole mock
   hdr_list = BN_PI_HDRS;
   selected_HDR: BN_PI_HDR;
@@ -42,14 +44,27 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
   status_para = '';
 
 
+
   constructor(private router: Router, private http: HttpClient
     , private datePipe: DatePipe
     , private renderer: Renderer
     , @Inject(ActivatedRoute) private _activatedroute: ActivatedRoute
-    , private bnpireplyservice: BnPiReplyService) { }
+    , private bnpireplyservice: BnPiReplyService) {
+
+      // this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      //   // If it is a NavigationEnd event re-initalise the component
+      //   if (e instanceof NavigationEnd) {
+      //     this.loadDatatable();
+      //   }
+      // });
+  }
 
   ngOnInit() {
 
+    this.loadDatatable();
+  }
+
+  loadDatatable() {
     // status mapping
     this.map.set('C', 'Complete');
     this.map.set('P', 'Pending for Reply');
@@ -62,26 +77,18 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
     this.map.set('InProgress', 'I');
     this.map.set('Replied', 'R');
     this.map.set('Delayed', 'D');
-
-
-
-
     // nicole get url para
-
+     // status_para = this.map.get(this._activatedroute.snapshot.params.status);
+    // console.log('url status: ' + this.map.get(this._activatedroute.snapshot.params.status))
     this._activatedroute.paramMap.subscribe(params => {
       this.status_para = params.get('status');
+      this.temp_text = this.status_para;
       console.log('current status 1: ' + this.status_para);
       const mapped_status = this.map.get(this.status_para);
+      console.log('mapped status : ' + mapped_status);
       const postdata: IPOST_GetByTxnNo = { txn_no: '', supplier_login_account_id: 1 };
       this.Post_getlistofhdr(postdata, mapped_status);
     });
-    // status_para = this.map.get(this._activatedroute.snapshot.params.status);
-    // console.log('url status: ' + this.map.get(this._activatedroute.snapshot.params.status));
-    // console.log('url status: ' + mapped_status);
-
-
-
-
   }
   public transformDate(mydate: DatePipe) {
     return this.datePipe.transform(mydate, 'yyyy MMM dd'); // whatever format you need.
@@ -103,7 +110,7 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
 
   ngAfterViewInit(): void {
     // nicole 20191107 rerender datatable
-     this.dtTrigger.next();
+    this.dtTrigger.next();
 
 
 
@@ -118,6 +125,13 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+
+    // avoid memory leaks here by cleaning up after ourselves. If we
+    // don't then we will continue to run our initialiseInvites()
+    // method on every navigationEnd event.
+    // if (this.navigationSubscription) {
+    //   this.navigationSubscription.unsubscribe();
+   // }
   }
   rerender(): void {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -132,9 +146,11 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
     // nicole 20191107
     const that = this;
     console.log('jump to post_getlistofhdr');
+    console.log(status);
     // this.rerender();
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
+        console.log('inside ajax call');
         this.bnpireplyservice.GetListByTxnNo(postdata).subscribe((data: APIResponse<BN_PI_HDR[]>) => {
           console.log(data.Response);
           this.listOfbnpihdr = data.Response.filter(function (data) {

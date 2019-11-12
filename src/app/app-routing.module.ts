@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'access-denied', loadChildren: () => import('./access-denied/access-denied.module').then(m => m.AccessDeniedModule) },
     { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
     { path: '**', redirectTo: 'not-found' }
+
 ];
 // nicole 20191106 add enableTracing
 @NgModule({
