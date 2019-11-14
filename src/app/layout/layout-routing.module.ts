@@ -19,6 +19,8 @@ const routes: Routes = [
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
             // { path: 'bn-pi-hdr', component: bnPiHdrComponent.BnPiHdrComponent},
             {path: 'bn-pi-hdr', loadChildren: () => import('./bn_pi/bn-pi-hdr/bn-pi-hdr.module').then(m => m.BnPiHdrModule)},
+            // tslint:disable-next-line:max-line-length
+            {path: 'bn-pi-shipment', loadChildren: () => import('./bn_pi/bn-pi-shipment/bn-pi-shipment.module').then(m => m.BnPiShipmentModule)},
             // nicole 20191105
             // {path: 'bn-pi-reply', loadChildren: () => import('./bn_pi/bn-pi-reply/bn-pi-reply.module').then(m => m.BnPiReplyModule)},
         ]

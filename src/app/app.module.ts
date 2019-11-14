@@ -18,11 +18,14 @@ import { AuthGuard } from './shared';
 // import { BnPiReplyComponent } from './layout/bn_pi/bn-pi-reply/bn-pi-reply.component';
 import { EnvironmentUrlService } from './services/environment/environment-url.service';
 import { ErrorHandlerService } from './services/environment/error-handler.service';
+// import { BnPiShipmentComponent } from './layout/bn_pi/bn-pi-shipment/bn-pi-shipment.component';
+
 
 
 
 @NgModule({
     declarations: [AppComponent
+        // , BnPiShipmentComponent
         // , BnPiHdrComponent, BnPiReplyComponent
     ],
     imports: [

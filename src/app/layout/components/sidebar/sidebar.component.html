@@ -56,6 +56,28 @@
                 </ul>
             </li>
         </div>
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('shipment')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Shipment' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'shipment'">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)" [routerLink]="['/bn-pi-shipment/']" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'View PI Shipment' | translate }}</span>
+                        </a>
+                    </li>                    
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
         <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i>&nbsp;
             <span>{{ 'Blank Page' | translate }}</span>
