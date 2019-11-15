@@ -8,6 +8,9 @@ import { DatePipe } from '@angular/common';
 import { DataTablesModule } from 'angular-datatables';
 import { BnPiShipmentComponent} from './bn-pi-shipment.component';
 import { BnPiShipmentRoutingModule } from './bn-pi-shipment-routing.module';
+import { BirdnestComponent } from './component/birdnest/birdnest.component';
+import { SeritiComponent } from './component/seriti/seriti.component';
+import { HeaderComponent } from './component/header/header.component';
 
 
 
@@ -21,7 +24,10 @@ import { BnPiShipmentRoutingModule } from './bn-pi-shipment-routing.module';
     , DataTablesModule
   ],
   declarations: [
-    BnPiShipmentComponent
+    BnPiShipmentComponent,
+    BirdnestComponent,
+    SeritiComponent,
+    HeaderComponent
   ]
   , providers: [DatePipe]
 })

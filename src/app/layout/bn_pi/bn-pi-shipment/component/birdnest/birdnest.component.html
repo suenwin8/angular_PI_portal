@@ -1,0 +1,138 @@
+<h1>
+    birdnest work!
+</h1>
+
+<div class="formGroup" [formGroup]="group">
+    <fieldset class="form-group">
+        <label>Shipment No:</label>
+        <input class="form-control" id="shipment_no" name="shipment_no" formControlName="shipment_no" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Status:</label>
+        <input class="form-control" id="status" name="status" formControlName="status" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Create Date:</label>
+        <input class="form-control" id="create_date" name="create_date" formControlName="create_date" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Supplier Code:</label>
+        <select class="form-control" id="supplier_code" name="supplier_code" formControlName="supplier_code">
+            <option disabled>--Please choose--</option>
+            <option value="5">Good</option>
+            <option value="4">Fair</option>
+            <option value="3">A little Lower</option>
+            <option value="2">Too low</option>
+            <option value="1">Loss Money</option>
+        </select>
+    </fieldset>
+    <fieldset class="form-group">
+        <label
+            >1) Please specify the exact date on when our company can receive your next shipment. (Our receiveing date must be on or before
+            the date you specified, unless pre-approved, any early /delay of your shipment will constitue your payment to be postponed by 1
+            week or more.)
+        </label>
+        <div class="input-group datepicker-input">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" />
+            <button class="input-group-addon" (click)="d.toggle()" type="button">
+                <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                <span class="fa fa-calendar"></span>
+            </button>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>2) Please specify the no. of catties/Kilos for each category in your next shipment. </label>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm">                    
+                </div>
+                <div class="col-sm">
+                    <span>BULU RINGAN</span>
+                </div>
+                <div class="col-sm">
+                    <span>BULU BEHAT</span>
+                </div>
+                <div class="col-sm">
+                    <span>Unit</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    Large and Beautiful BN (width >= 4.2cm)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_ringan_beautiful_birdsNest_qty" name="bulu_ringan_beautiful_birdsNest_qty" formControlName="bulu_ringan_beautiful_birdsNest_qty" />
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_behat_beautiful_birdsNest_qty" name="bulu_behat_beautiful_birdsNest_qty" formControlName="bulu_behat_beautiful_birdsNest_qty" />                    
+                </div>
+                <div class="col-sm">                    
+                    <select class="form-control" id="bulu_ringan_beautiful_birdsNest_unit" name="bulu_ringan_beautiful_birdsNest_unit" formControlName="bulu_ringan_beautiful_birdsNest_unit">
+                        <option disabled>--Please choose--</option>
+                        <option value="kg">Kilos</option>
+                        <option value="catties">Catties</option>                        
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    Medium and Large BN (width 2.6cm - 4.1 cm)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_ringan_medium_birdsNest_qty" name="bulu_ringan_medium_birdsNest_qty" formControlName="bulu_ringan_medium_birdsNest_qty" />
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_behat_medium_birdsNest_qty" name="bulu_behat_medium_birdsNest_qty" formControlName="bulu_behat_medium_birdsNest_qty" />
+                </div>
+                <div class="col-sm">                    
+                    <select class="form-control" id="bulu_ringan_medium_birdsNest_unit" name="bulu_ringan_medium_birdsNest_unit" formControlName="bulu_ringan_medium_birdsNest_unit">
+                        <option disabled>--Please choose--</option>
+                        <option value="kg">Kilos</option>
+                        <option value="catties">Catties</option>                        
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    △ and Small BN (width <= 2.5 cm)
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_ringan_small_birdsNest_qty" name="bulu_ringan_small_birdsNest_qty" formControlName="bulu_ringan_small_birdsNest_qty" />
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_behat_small_birdsNest_qty" name="bulu_behat_small_birdsNest_qty" formControlName="bulu_behat_small_birdsNest_qty" />
+                </div>
+                <div class="col-sm">                    
+                    <select class="form-control" id="bulu_ringan_small_birdsNest_unit" name="bulu_ringan_small_birdsNest_unit" formControlName="bulu_ringan_small_birdsNest_unit">
+                        <option disabled>--Please choose--</option>
+                        <option value="kg">Kilos</option>
+                        <option value="catties">Catties</option>                        
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    Broken, Feet, Mess
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_ringan_broken_qty" name="bulu_ringan_broken_qty" formControlName="bulu_ringan_broken_qty" />
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" id="bulu_behat_broken_qty" name="bulu_behat_broken_qty" formControlName="bulu_behat_broken_qty" />
+                </div>
+                <div class="col-sm">                    
+                    <select class="form-control" id="bulu_ringan_broken_unit" name="bulu_ringan_broken_unit" formControlName="bulu_ringan_broken_unit">
+                        <option disabled>--Please choose--</option>
+                        <option value="kg">Kilos</option>
+                        <option value="catties">Catties</option>                        
+                    </select>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>3. Any Others:</label>
+        <input class="form-control" id="any_others" name="any_others" formControlName="any_others" />
+    </fieldset>
+
+</div>
