@@ -11,6 +11,7 @@ import { BnPiShipmentRoutingModule } from './bn-pi-shipment-routing.module';
 import { BirdnestComponent } from './component/birdnest/birdnest.component';
 import { SeritiComponent } from './component/seriti/seriti.component';
 import { HeaderComponent } from './component/header/header.component';
+import { BnPiShipmentDetailComponent } from './bn-pi-shipment-detail/bn-pi-shipment-detail.component';
 
 
 
@@ -27,7 +28,8 @@ import { HeaderComponent } from './component/header/header.component';
     BnPiShipmentComponent,
     BirdnestComponent,
     SeritiComponent,
-    HeaderComponent
+    HeaderComponent,
+    BnPiShipmentDetailComponent
   ]
   , providers: [DatePipe]
 })

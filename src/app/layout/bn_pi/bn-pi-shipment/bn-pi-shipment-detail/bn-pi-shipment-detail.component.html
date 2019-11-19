@@ -1,0 +1,12 @@
+<app-page-header [heading]="'PI Shipment'" [icon]="'fa-desktop'"></app-page-header>
+
+<div class="">
+  {{url_para_create}}
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-shipment-header [group]="form.get('shipment_detail')"></app-shipment-header>
+        <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>
+        <button type="button" class="btn btn-primary" type="submit">
+            SUBMIT
+        </button>
+    </form>
+</div>
