@@ -175,10 +175,14 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
 
     this.renderer.listenGlobal('document', 'click', (event) => {
       if (event.target.hasAttribute('view-reply-id')) {
-        console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
-        // this.goToPage(event.target.getAttribute('view-reply-id'));
+        // console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
+         this.goToPage(event.target.getAttribute('view-reply-id'));
       }
     });
+  }
+
+  goToPage(txn_no: string) {
+    this.router.navigate(['bn-pi-shipment/edit/', txn_no]);
   }
 
   ngOnDestroy(): void {

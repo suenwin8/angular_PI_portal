@@ -27,10 +27,9 @@ import { SupplierService } from 'src/app/services/supplier/supplier-service.serv
 })
 export class BnPiShipmentDetailComponent implements OnInit {
 
-  // shipmentform: FormGroup;
-  // data: IBnPiShipmentDetail;
   data: IBnPiShipmentDetail;
   url_para_create: string;
+  url_para_shipmentNo: string;
 
   supplier_login_id = 1;
   public tpl_supplier_code: ISupplier[];
@@ -51,12 +50,21 @@ export class BnPiShipmentDetailComponent implements OnInit {
     // this.url_para_create = queryParams['shipment_type'];
     this._activatedroute.paramMap.subscribe(params => {
       this.url_para_create = params.get('shipment_type');
+      this.url_para_shipmentNo = params.get('shipment_no');
     });
 
-    console.log(this.data);
+    // console.log(this.data);
+    console.log(this.url_para_shipmentNo);
     this.bindSupplierCodeField();
+    if (this.url_para_shipmentNo) {
+      const postdata: SELECT_POST_T<IBnPiShipmentNo> = {
+        supplier_login_account_id: this.supplier_login_id,
+        detail: { shipment_no: this.url_para_shipmentNo }
+      };
+      console.log(postdata);
+      this.PostToGetShipmentDetail(postdata);
+     } else { this.shipmentloader.loadReplyForEdit(this.data); }
 
-    this.shipmentloader.loadReplyForEdit(this.data);
 
   }
 
@@ -66,11 +74,12 @@ export class BnPiShipmentDetailComponent implements OnInit {
   NgbDatetoDate(dob: Date): NgbDateStruct {
     if (dob) {
       const loIsDate = new Date(dob);
-      console.log(loIsDate);
-      const ngbDateStruct = { day: loIsDate.getUTCDay(), month: loIsDate.getMonth(), year: loIsDate.getFullYear()};
+      // console.log(loIsDate);
+      const ngbDateStruct = { day: loIsDate.getDate(), month: loIsDate.getMonth() + 1, year: loIsDate.getFullYear() };
+      console.log(ngbDateStruct);
       return ngbDateStruct;
-      }
     }
+  }
   bindSupplierCodeField() {
     const post_data: SELECT_POST_T<ISupplier> = {
       supplier_login_account_id: this.supplier_login_id,
@@ -139,7 +148,7 @@ export class BnPiShipmentDetailComponent implements OnInit {
           console.warn('Your order has been submitted', data);
           const postdata: SELECT_POST_T<IBnPiShipmentNo> = {
             supplier_login_account_id: this.supplier_login_id,
-            detail: {shipment_no: data.Response.detail.shipment_no}
+            detail: { shipment_no: data.Response.detail.shipment_no }
           };
           console.log(postdata);
           this.PostToGetShipmentDetail(postdata);
@@ -157,7 +166,13 @@ export class BnPiShipmentDetailComponent implements OnInit {
       console.log('update');
       this.shipment_service.UpdatePIShipment(post_data).subscribe((data: APIResponse<UPDATE_POST_T<IBnPiShipmentDetail>>) => {
         if (data.IsSuccess) {
-          console.warn('Your order has been submitted', data);
+          console.warn('Your order has been updated', data);
+          const postdata: SELECT_POST_T<IBnPiShipmentNo> = {
+            supplier_login_account_id: this.supplier_login_id,
+            detail: { shipment_no: data.Response.detail.shipment_no }
+          };
+          console.log(postdata);
+          this.PostToGetShipmentDetail(postdata);
         } else {
           console.warn('Problems: ', data);
         }

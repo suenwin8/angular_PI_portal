@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: '', component: BnPiShipmentComponent },
    // { path: 'create/:shipment_type', component: BirdnestComponent },
    { path: 'create/:shipment_type', component: BnPiShipmentDetailComponent },
+   { path: 'edit/:shipment_no', component: BnPiShipmentDetailComponent },
 ];
 
 @NgModule({
