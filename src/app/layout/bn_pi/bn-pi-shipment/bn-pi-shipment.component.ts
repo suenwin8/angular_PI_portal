@@ -36,6 +36,15 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
   dtTrigger: Subject<any> = new Subject();
   public listOfShipmentHdr: IBnPiShipmentDetail[];
 
+  private _selectedObj;
+  get selectedObj() {
+    return this._selectedObj;
+  }
+  set selectedObj(newObj) {
+    this._selectedObj = newObj;
+    this.onSelect(newObj);
+  }
+
   constructor(private router: Router, private http: HttpClient
     , private datePipe: DatePipe
     , private renderer: Renderer
@@ -52,9 +61,11 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
   public transformDate(mydate: DatePipe) {
     return this.datePipe.transform(mydate, 'yyyy MMM dd'); // whatever format you need.
   }
-  onSelect(choice: BnPiShipmentType) {
-    this.selectedChoice = choice;
+  onSelect(event: any) {
+    console.log('onselect time');
+    this.selectedChoice = event;
     console.log(this.selectedChoice);
+    // console.log(event);
     // this.router.navigateByUrl('bn-pi-shipment/create/', this.selectedChoice.type_name);
   }
   goToShipment = function () {
@@ -164,7 +175,7 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
 
     this.renderer.listenGlobal('document', 'click', (event) => {
       if (event.target.hasAttribute('view-reply-id')) {
-         console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
+        console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
         // this.goToPage(event.target.getAttribute('view-reply-id'));
       }
     });

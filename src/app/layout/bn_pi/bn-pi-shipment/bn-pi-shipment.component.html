@@ -1,18 +1,42 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'View PI Shipment'" [icon]="'fa-desktop'"></app-page-header>
 
-    <ul class="create_choice">
+    <!-- <ul class="create_choice">
         <li *ngFor="let choice of create_choice" [class.selected]="choice === selectedChoice" (click)="onSelect(choice)">
-            <!-- <span class="badge">{{ choice.type_name }}</span> {{ choice.type_name }} -->
+             <span class="badge">{{ choice.type_name }}</span> {{ choice.type_name }} 
             <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', choice.type_name]">
                 {{ choice.type_name }}
             </button>
         </li>
-    </ul>
+    </ul> -->
+    <!-- <select class="create_choice" (change)="onSelect($event)" ng-model="selectedChoice">
+        <option>---Select for create shipment----</option>
+        <option *ngFor="let choice of create_choice"         
+        [class.selected]="choice === selectedChoice" 
+        >{{
+            choice.type_name
+        }}</option>
+    </select>  -->
 
-    <div *ngIf="selectedChoice">
-        <h2>{{ selectedChoice.type_name }} Details</h2>
-        <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', selectedChoice.type_name]">Create</button>
+    <div class="card bg-light mb-3">
+        <div class="card-header">Create Shipment</div>
+        <div class="card-body">
+            <select class="create_choice" ngModel="ngcreate" (ngModelChange)="onSelect($event)">
+                <option>---Select for create shipment----</option>
+                <option *ngFor="let choice of create_choice" [class.selected]="choice === selectedChoice" [ngValue]="choice">{{
+                    choice.type_name
+                }}</option>
+            </select>
+             <span *ngIf="selectedChoice">             
+                    <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', selectedChoice.type_name]">
+                        Create
+                    </button>
+                <!-- <h2>{{ selectedChoice.type_name }} Details</h2> 
+                <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', selectedChoice.type_name]">
+                    Create
+                </button>-->
+            </span>
+        </div>
     </div>
 
     <div class="grid_shipment_submitted">
