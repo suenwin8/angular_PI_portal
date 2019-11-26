@@ -12,11 +12,12 @@ export class BnPiShipmentLoaderService {
   loadReplyForEdit(data: IBnPiShipmentDetail): void {
     console.log(data);
     this.shipmentservice.form.patchValue({
-      reply_detail: {
+      shipment_detail: {
         ...data
       }
     });
 
 
   }
+
 }

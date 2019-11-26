@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BnPiShipmentServiceService } from './bn-pi-shipment-service.service';
+import { BnPiShipmentService } from './bn-pi-shipment-service.service';
 
 describe('BnPiShipmentServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BnPiShipmentServiceService = TestBed.get(BnPiShipmentServiceService);
+    const service: BnPiShipmentService = TestBed.get(BnPiShipmentService);
     expect(service).toBeTruthy();
   });
 });

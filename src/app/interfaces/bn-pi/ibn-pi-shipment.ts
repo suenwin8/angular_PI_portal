@@ -1,7 +1,10 @@
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
 export interface IBnPiShipmentDetail {
     shipment_no: string;
     supplier_code: string;
     next_shipment_date: Date;
+    _next_shipment_date: NgbDateStruct;
     shipment_type: string;
     bulu_ringan_beautiful_birdsNest_qty: number;
     bulu_ringan_medium_birdsNest_qty: number;
@@ -36,3 +39,15 @@ export interface IBnPiShipmentDetail {
     last_updated_date: Date;
     last_updated_by: string;
 }
+
+export interface IBnPiShipmentNo {
+    shipment_no: string;
+}
+
+// API
+export interface IPOST_PIShipment {
+    shipment_detail: IBnPiShipmentDetail;
+  }
+
+
+

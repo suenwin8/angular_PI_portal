@@ -1,28 +1,29 @@
 <p>
-  header works!
+    header works!
 </p>
+
 <div class="formGroup" [formGroup]="group">
     <fieldset class="form-group">
         <label>Shipment No:</label>
-        <input class="form-control" id="shipment_no" name="shipment_no" formControlName="shipment_no" />
+        <input class="form-control" id="shipment_no" name="shipment_no" formControlName="shipment_no"/>
     </fieldset>
     <fieldset class="form-group">
         <label>Status:</label>
-        <input class="form-control" id="status" name="status" formControlName="status" />
+        <input class="form-control" id="status" name="status" formControlName="status"/>
     </fieldset>
     <fieldset class="form-group">
-        <label>Create Date:</label>
-        <input class="form-control" id="created_date" name="created_date" formControlName="created_date" />
+        <div class="form-group">
+            <label>Create Date:</label>
+            <!-- <input class="form-control" id="created_date" name="created_date" formControlName="created_date" value="{{tpl_data.created_date | date: 'yyyy-MMM-dd' }}"/> -->
+            <input class="form-control" id="created_date" name="created_date" formControlName="created_date"/>
+
+        </div>
     </fieldset>
+
     <fieldset class="form-group">
         <label>Supplier Code:</label>
         <select class="form-control" id="supplier_code" name="supplier_code" formControlName="supplier_code">
-            <option disabled>--Please choose--</option>
-            <option value="5">Good</option>
-            <option value="4">Fair</option>
-            <option value="3">A little Lower</option>
-            <option value="2">Too low</option>
-            <option value="1">Loss Money</option>
+            <option *ngFor="let tpl of tpl_supplier_code" [value]="tpl.supplier_code">{{ tpl.supplier_code }}</option>
         </select>
     </fieldset>
 </div>
