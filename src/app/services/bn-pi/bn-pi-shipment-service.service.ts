@@ -6,6 +6,7 @@ import { IBnPiShipmentDetail, IPOST_PIShipment, IBnPiShipmentNo } from 'src/app/
 import { INSERT_POST_T } from 'src/app/models/request/insert-post-t';
 import { UPDATE_POST_T } from 'src/app/models/request/update-post-t';
 import { SELECT_POST_T } from 'src/app/models/request/select-post-t';
+import { IPOST_supplier_account_id } from 'src/app/interfaces/supplier/isupplier';
 
 @Injectable({
   providedIn: 'root'
@@ -80,5 +81,9 @@ export class BnPiShipmentService {
 
   public SelectPIShipment(data: SELECT_POST_T<IBnPiShipmentNo>) {
     return this.repo.post('api/BNPIShipment/SelectPIShipmentBySupplierID', data);
+  }
+
+  public SelectALLPIShipment(data: IPOST_supplier_account_id) {
+    return this.repo.post('api/BNPIShipment/SelectALLPIShipmentBySupplierID', data);
   }
 }

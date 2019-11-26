@@ -4,7 +4,9 @@
     <ul class="create_choice">
         <li *ngFor="let choice of create_choice" [class.selected]="choice === selectedChoice" (click)="onSelect(choice)">
             <!-- <span class="badge">{{ choice.type_name }}</span> {{ choice.type_name }} -->
-            <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', choice.type_name]">{{choice.type_name}}</button>
+            <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', choice.type_name]">
+                {{ choice.type_name }}
+            </button>
         </li>
     </ul>
 
@@ -13,26 +15,7 @@
         <button type="button" class="btn waves-effect waves-light blue" [routerLink]="['create/', selectedChoice.type_name]">Create</button>
     </div>
 
-    <!--  <form [formGroup]="form">
-        <input formControlName="first"> 
-        <button type="button" class="btn waves-effect waves-light blue" (click)="goToShipment()">Create</button>
-      </form> 
-
-     <div class="form-group" [formGroup]="create">
-        <label>Create Shipment</label>
-        <div class="row">
-            <div class="col-lg-6">
-                <select class="form-control"  [(ngModel)]="create_type" >
-                    <option>--Please Choose--</option>
-                    <option>BirdNest</option>
-                    <option>Seriti</option>
-                </select>
-            </div>
-            <div class="col-lg-6">
-                <button type="button" class="btn waves-effect waves-light blue" (click)="goToShipment()">
-                    Create
-                </button>
-            </div>
-        </div>
-    </div>  -->
+    <div class="grid_shipment_submitted">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+    </div>
 </div>

@@ -9,3 +9,8 @@ export interface ISupplier {
     last_updated_date: Date;
     last_updated_by: string;
 }
+
+// api
+export interface IPOST_supplier_account_id {
+    supplier_login_account_id: number;
+}
