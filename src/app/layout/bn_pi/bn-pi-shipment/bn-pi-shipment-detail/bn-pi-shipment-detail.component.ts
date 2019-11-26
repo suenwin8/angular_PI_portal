@@ -34,6 +34,7 @@ export class BnPiShipmentDetailComponent implements OnInit {
   supplier_login_id = 1;
   public tpl_supplier_code: ISupplier[];
   public tpl_data: IBnPiShipmentDetail;
+  public tpl_shipment_rec_type: string;
 
   constructor(private shipment_service: BnPiShipmentService
     , private supplier_service: SupplierService
@@ -61,9 +62,15 @@ export class BnPiShipmentDetailComponent implements OnInit {
         supplier_login_account_id: this.supplier_login_id,
         detail: { shipment_no: this.url_para_shipmentNo }
       };
+      console.log('edit shipment mode');
       console.log(postdata);
       this.PostToGetShipmentDetail(postdata);
-     } else { this.shipmentloader.loadReplyForEdit(this.data); }
+    } else {
+      this.tpl_shipment_rec_type = this.url_para_create;
+      console.log('create shipment mode');
+      console.log(this.tpl_shipment_rec_type);
+      this.shipmentloader.loadReplyForEdit(this.data);
+    }
 
 
   }
@@ -104,11 +111,11 @@ export class BnPiShipmentDetailComponent implements OnInit {
   PostToGetShipmentDetail(postdata: SELECT_POST_T<IBnPiShipmentNo>) {
     this.shipment_service.SelectPIShipment(postdata).subscribe((data: APIResponse<SELECT_POST_T<IBnPiShipmentDetail>>) => {
       if (data.IsSuccess) {
-        // console.warn('get binding supplier code', data);
         this.data = data.Response.detail;
         this.data._next_shipment_date = this.NgbDatetoDate(this.data.next_shipment_date);
         console.log(this.data);
         this.tpl_data = this.data;
+        this.tpl_shipment_rec_type = this.data.rec_type;
         this.shipmentloader.loadReplyForEdit(this.data);
       } else {
         console.warn('No Shipment found: ', data);
@@ -138,7 +145,10 @@ export class BnPiShipmentDetailComponent implements OnInit {
     };
     const _date: NgbDateStruct = reply.shipment_detail._next_shipment_date;
     reply.shipment_detail.next_shipment_date = this.fromNgbDateToDateTime(_date);
-    reply.shipment_detail.rec_type = this.url_para_create;
+    if (this.url_para_create) {
+      reply.shipment_detail.rec_type = this.url_para_create;
+    }
+
     console.log(post_data);
 
     if (reply.shipment_detail.shipment_no === undefined || reply.shipment_detail.shipment_no === null) {

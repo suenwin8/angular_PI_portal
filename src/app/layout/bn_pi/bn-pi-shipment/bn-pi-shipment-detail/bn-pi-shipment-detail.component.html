@@ -2,7 +2,6 @@
 
 <div class="">
     {{ url_para_create }}
-
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- <fieldset class="form-group">
                     <label>Supplier Code:</label>                    
@@ -13,7 +12,17 @@
         <app-shipment-header [tpl_supplier_code]="tpl_supplier_code" 
         [tpl_data]="tpl_data"
         [group]="form.get('shipment_detail')"></app-shipment-header>
-        <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>
+         <!-- <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>  -->
+        <div [ngSwitch]="tpl_shipment_rec_type">
+                <div *ngSwitchCase="'SERITI'">
+                    SERITI
+                    <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
+                </div>
+                <div *ngSwitchCase="'BIRDNEST'">
+                    BIRDNEST
+                    <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest> 
+                </div>
+            </div> 
         <button type="button" class="btn btn-primary" type="submit">
             SUBMIT
         </button>
