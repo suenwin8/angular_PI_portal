@@ -1,10 +1,9 @@
 <app-page-header [heading]="'PI Shipment'" [icon]="'fa-desktop'"></app-page-header>
 
-<div class="">
-    {{ url_para_create }}
+<div class="">    
     <!--nicole 20191127 validation-->
-    <div *ngIf="tpl_errorMessage" class="alert alert-danger">       
-          {{tpl_errorMessage}}
+    <div *ngIf="tpl_errorMessage" class="alert alert-danger">
+        {{ tpl_errorMessage }}
     </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- <fieldset class="form-group">
@@ -21,16 +20,14 @@
         <!-- <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>  -->
         <div [ngSwitch]="tpl_shipment_rec_type">
             <div *ngSwitchCase="'SERITI'">
-                SERITI
                 <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
             </div>
             <div *ngSwitchCase="'BIRDNEST'">
-                BIRDNEST
                 <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>
             </div>
         </div>
 
-        <!--nicole 20191127 add form validation-->  
+        <!--nicole 20191127 add form validation-->
         <button type="button" class="btn btn-primary" type="submit" [disabled]="form.pristine || form.invalid">
             SUBMIT
         </button>

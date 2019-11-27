@@ -61,6 +61,10 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
   public transformDate(mydate: DatePipe) {
     return this.datePipe.transform(mydate, 'yyyy MMM dd'); // whatever format you need.
   }
+
+  public transformDateTime(mydate: DatePipe) {
+    return this.datePipe.transform(mydate, 'yyyy MMM dd HH:mm:ss'); // whatever format you need.
+  }
   onSelect(event: any) {
     console.log('onselect time');
     this.selectedChoice = event;
@@ -117,33 +121,39 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
         });
       },
       columns: [{
-        title: 'shipment_no',
+        title: 'Shipment No',
         data: 'shipment_no'
       },
       {
-        title: 'rec_type',
+        title: 'Type',
         data: 'rec_type'
       },
       {
-        title: 'supplier_code',
+        title: 'Supplier Code',
         data: 'supplier_code'
       },
       {
-        title: 'next_shipment_date',
+        title: 'Next Shipment Date',
         render: (data, type, row) => this.transformDate(row.next_shipment_date)
       },
       {
-        title: 'any_others',
+        title: 'Any Others',
         data: 'any_others'
       },
       {
-        title: 'submitted_date',
+        title: 'Submission Date',
         render: (data, type, row) => this.transformDate(row.submitted_date)
       },
       {
-        title: 'Airway_Bill_no',
+        title: 'Airway Bill No',
         data: 'Airway_Bill_no'
+      },
+      {
+        title: 'Last Update Time',
+        render: (data, type, row) => this.transformDateTime(row.last_updated_date)
+
       }
+
         , {
         title: 'Action',
         render: (data, type, row) => {
@@ -176,7 +186,7 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
     this.renderer.listenGlobal('document', 'click', (event) => {
       if (event.target.hasAttribute('view-reply-id')) {
         // console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
-         this.goToPage(event.target.getAttribute('view-reply-id'));
+        this.goToPage(event.target.getAttribute('view-reply-id'));
       }
     });
   }

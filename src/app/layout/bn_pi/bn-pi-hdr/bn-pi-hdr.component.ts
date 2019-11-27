@@ -169,7 +169,7 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
         });
       },
       columns: [{
-        title: 'txn_no',
+        title: 'Txn No',
         render: (data, type, row) => {
           let badgecolor = '';
           let statustext = '';
@@ -189,23 +189,23 @@ export class BnPiHdrComponent implements AfterViewInit, OnDestroy, OnInit {
         }
       },
       {
-        title: 'supplier_code',
+        title: 'Supplier Code',
         data: 'supplier_code'
       },
       {
-        title: 'issue_date',
+        title: 'Issue Date',
         render: (data, type, row) => this.transformDate(row.issue_date)
       }
         , {
-        title: 'airway_bill',
+        title: 'Airway Bill No',
         data: 'airway_bill'
       },
       {
-        title: 'actual_reply_date',
+        title: 'Actual Reply Date',
         render: (data, type, row) => this.transformDate(row.actual_reply_date)
       },
       {
-        title: 'is_delayed',
+        title: 'Remark',
         render: (data, type, row) => {
           let badgecolor = '';
           let statustext = '';
