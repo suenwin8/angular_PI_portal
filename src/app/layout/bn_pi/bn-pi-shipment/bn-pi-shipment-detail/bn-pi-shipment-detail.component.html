@@ -2,6 +2,10 @@
 
 <div class="">
     {{ url_para_create }}
+    <!--nicole 20191127 validation-->
+    <div *ngIf="tpl_errorMessage" class="alert alert-danger">       
+          {{tpl_errorMessage}}
+    </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- <fieldset class="form-group">
                     <label>Supplier Code:</label>                    
@@ -9,22 +13,31 @@
                             <option *ngFor="let tpl of tpl_supplier_code" [value]="tpl.supplier_code">{{tpl.supplier_code}}</option>
                         </select>  
                 </fieldset> -->
-        <app-shipment-header [tpl_supplier_code]="tpl_supplier_code" 
-        [tpl_data]="tpl_data"
-        [group]="form.get('shipment_detail')"></app-shipment-header>
-         <!-- <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>  -->
+        <app-shipment-header
+            [tpl_supplier_code]="tpl_supplier_code"
+            [tpl_data]="tpl_data"
+            [group]="form.get('shipment_detail')"
+        ></app-shipment-header>
+        <!-- <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>  -->
         <div [ngSwitch]="tpl_shipment_rec_type">
-                <div *ngSwitchCase="'SERITI'">
-                    SERITI
-                    <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
-                </div>
-                <div *ngSwitchCase="'BIRDNEST'">
-                    BIRDNEST
-                    <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest> 
-                </div>
-            </div> 
-        <button type="button" class="btn btn-primary" type="submit">
+            <div *ngSwitchCase="'SERITI'">
+                SERITI
+                <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
+            </div>
+            <div *ngSwitchCase="'BIRDNEST'">
+                BIRDNEST
+                <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>
+            </div>
+        </div>
+
+        <!--nicole 20191127 add form validation-->  
+        <button type="button" class="btn btn-primary" type="submit" [disabled]="form.pristine || form.invalid">
             SUBMIT
         </button>
     </form>
+    <!-- <br />
+    <p>Form value: {{ form.value | json }}</p>
+
+    
+    <p>Form status: {{ form.status | json }}</p> -->
 </div>

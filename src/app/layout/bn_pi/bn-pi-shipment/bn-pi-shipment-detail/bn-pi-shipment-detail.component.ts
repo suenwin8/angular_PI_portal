@@ -35,6 +35,7 @@ export class BnPiShipmentDetailComponent implements OnInit {
   public tpl_supplier_code: ISupplier[];
   public tpl_data: IBnPiShipmentDetail;
   public tpl_shipment_rec_type: string;
+  public tpl_errorMessage = '';
 
   constructor(private shipment_service: BnPiShipmentService
     , private supplier_service: SupplierService
@@ -135,19 +136,48 @@ export class BnPiShipmentDetailComponent implements OnInit {
     return newDate;
 
   }
+
+  public validation(data: IBnPiShipmentDetail): boolean {
+    this.tpl_errorMessage = '';
+    if (data.rec_type === 'SERITI') {
+      if (data.seriti_BirdsNest_unit === null) {
+        this.tpl_errorMessage = this.tpl_errorMessage + 'Missing seriti_birdsNest_unit';
+
+      }
+    }
+
+
+
+    if (this.tpl_errorMessage === '') {
+        return true;
+    } else {
+        return false;
+    }
+  }
   public onSubmit() {
     // console.warn(JSON.stringify(this.form.value));
+
     const reply: IPOST_PIShipment = this.shipment_service.createPIReplyDto(this.form.value);
-    console.log(reply.shipment_detail);
+    if (this.url_para_create) {
+      reply.shipment_detail.rec_type = this.url_para_create;
+    }
+
+// validation
+if (!this.validation(reply.shipment_detail)) {
+  alert('error');
+return;
+}
+
+
     const post_data: INSERT_POST_T<IBnPiShipmentDetail> = {
       supplier_login_account_id: this.supplier_login_id,
       detail: reply.shipment_detail
     };
     const _date: NgbDateStruct = reply.shipment_detail._next_shipment_date;
     reply.shipment_detail.next_shipment_date = this.fromNgbDateToDateTime(_date);
-    if (this.url_para_create) {
-      reply.shipment_detail.rec_type = this.url_para_create;
-    }
+    console.log(reply.shipment_detail);
+
+
 
     console.log(post_data);
 

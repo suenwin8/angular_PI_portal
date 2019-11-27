@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { RepositoryService } from '../environment/repository.service';
 import { ErrorHandlerService } from '../environment/error-handler.service';
 import { IBnPiShipmentDetail, IPOST_PIShipment, IBnPiShipmentNo } from 'src/app/interfaces/bn-pi/ibn-pi-shipment';
@@ -20,7 +20,7 @@ export class BnPiShipmentService {
     , private errorHandler: ErrorHandlerService) {
     this.form = this.fb.group({
       shipment_detail: this.fb.group({
-        shipment_no: new FormControl(),
+        shipment_no: new FormControl({value: '', disabled: true}),
         supplier_code: new FormControl(),
         _next_shipment_date: new FormControl(),
         shipment_type: new FormControl(),
@@ -51,15 +51,23 @@ export class BnPiShipmentService {
         reference_pi_no: new FormControl(),
         Airway_Bill_no: new FormControl(),
         rec_type: new FormControl(),
-        status: new FormControl(),
-        created_date: new FormControl(),
+        status: new FormControl({value: '', disabled: true}),
+        created_date: new FormControl({value: '', disabled: true}),
         created_by: new FormControl(),
         last_updated_date: new FormControl(),
         last_updated_by: new FormControl(),
-      })
-
+      }
+      // , { validators: this.identityRevealedValidator }
+      )
     });
   }
+
+  // identityRevealedValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+  //   const any_others = control.get('any_others');
+  //   console.log(any_others);
+
+  //   return any_others === null ? { 'identityRevealed': true } : null;
+  // };
 
   // createPIReplyDto(data: IBnPiShipmentDetail): IBnPiShipmentDetail {
   createPIReplyDto(data: IPOST_PIShipment): IPOST_PIShipment {

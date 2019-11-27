@@ -1,52 +1,78 @@
 <p>
-  seriti works!
+    seriti works!
 </p>
-<div class="formGroup" [formGroup]="group">  
+<div class="formGroup" [formGroup]="group">
     <fieldset class="form-group">
-        <label>1) Please specify the exact date on when our company can receive your next shipment.  (Our receiving date must be on or before the date you specified, unless pre-approved, any early/delay of your shipment will constitute your payment to be postponed by1week or more.)
+        <label
+            >1) Please specify the exact date on when our company can receive your next shipment. (Our receiving date must be on or before
+            the date you specified, unless pre-approved, any early/delay of your shipment will constitute your payment to be postponed
+            by 1 week or more.)
         </label>
         <div class="input-group datepicker-input">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp"  ngbDatepicker #d="ngbDatepicker" formControlName="_next_shipment_date" />
-            <button class="input-group-addon" (click)="d.toggle()" type="button">               
+            <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                ngbDatepicker
+                #d="ngbDatepicker"
+                formControlName="_next_shipment_date"
+            />
+            <button class="input-group-addon" (click)="d.toggle()" type="button">
                 <span class="fa fa-calendar"></span>
             </button>
-            
         </div>
     </fieldset>
     <fieldset class="form-group">
         <label>2) Please specify the no. of catties/Kilos for each category in your next shipment. </label>
         <div class="form-group">
             <div class="row">
-                <div class="col-sm">                    
-                </div>
+                <div class="col-sm"></div>
                 <div class="col-sm">
                     <span>Quantity</span>
                 </div>
                 <div class="col-sm">
                     <span>Unit</span>
-                </div>                
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm">
-                   Seriti
+                    Seriti
                 </div>
                 <div class="col-sm">
-                    <input class="form-control" id="seriti_BirdsNest_qty" name="seriti_BirdsNest_qty" formControlName="seriti_BirdsNest_qty" />
-                </div>                
-                <div class="col-sm">                    
-                    <select class="form-control" id="seriti_BirdsNest_unit" name="seriti_BirdsNest_unit" formControlName="seriti_BirdsNest_unit">
+                    <input
+                        class="form-control"
+                        id="seriti_BirdsNest_qty"
+                        name="seriti_BirdsNest_qty"
+                        formControlName="seriti_BirdsNest_qty"
+                    />
+                </div>
+                <div class="col-sm">
+                    <select
+                        class="form-control"
+                        id="seriti_BirdsNest_unit"
+                        name="seriti_BirdsNest_unit"
+                        formControlName="seriti_BirdsNest_unit"
+                    >
                         <option disabled>--Please choose--</option>
                         <option value="kg">Kilos</option>
-                        <option value="catties">Catties</option>                        
+                        <option value="catties">Catties</option>
                     </select>
                 </div>
-            </div>            
-            
+                <!--nicole 20191127 validation-->
+                <!-- <div
+                    *ngIf="group.controls['seriti_BirdsNest_unit'].invalid && (group.controls['seriti_BirdsNest_unit'].dirty || group.controls['seriti_BirdsNest_unit'].touched)"
+                    class="alert alert-danger"
+                >
+                    <div *ngIf="group.controls['seriti_BirdsNest_unit'].errors.required">
+                        unit is required.
+                    </div>
+                </div> -->
+
+            </div>
         </div>
     </fieldset>
     <fieldset class="form-group">
         <label>3. Any Others:</label>
         <input class="form-control" id="any_others" name="any_others" formControlName="any_others" />
     </fieldset>
-
 </div>
