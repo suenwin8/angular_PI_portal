@@ -21,11 +21,13 @@
             <app-pi-reply-header [passed_HDR]="passed_HDR" [group]="form.get('reply_hdr')"></app-pi-reply-header>
             <div [ngSwitch]="passed_HDR.rec_type">
                 <div *ngSwitchCase="'SERITI'">
-                    SERITI
-                    <app-seriti [group]="form.get('reply_detail')"></app-seriti>
+                    
+                    <app-seriti [group]="form.get('reply_detail')"></app-seriti>        
+                            
+                    <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
                 </div>
                 <div *ngSwitchCase="'BIRDNEST'">
-                    BIRDNEST
+                    
                     <app-birdnest [group]="form.get('reply_detail')"></app-birdnest>
                 </div>
             </div> 

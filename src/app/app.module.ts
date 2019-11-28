@@ -19,7 +19,8 @@ import { AuthGuard } from './shared';
 import { EnvironmentUrlService } from './services/environment/environment-url.service';
 import { ErrorHandlerService } from './services/environment/error-handler.service';
 // import { BnPiShipmentComponent } from './layout/bn_pi/bn-pi-shipment/bn-pi-shipment.component';
-
+// nicole 20191128
+import {BnPiShipmentModule} from './layout/bn_pi/bn-pi-shipment/bn-pi-shipment.module';
 
 
 
@@ -35,7 +36,8 @@ import { ErrorHandlerService } from './services/environment/error-handler.servic
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
-        DataTablesModule
+        DataTablesModule,
+        BnPiShipmentModule
     ],
     providers: [AuthGuard
         , EnvironmentUrlService

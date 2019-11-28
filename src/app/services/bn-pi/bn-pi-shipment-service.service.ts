@@ -20,7 +20,7 @@ export class BnPiShipmentService {
     , private errorHandler: ErrorHandlerService) {
     this.form = this.fb.group({
       shipment_detail: this.fb.group({
-        shipment_no: new FormControl({value: '', disabled: true}),
+        shipment_no: new FormControl(),
         supplier_code: new FormControl(),
         _next_shipment_date: new FormControl(),
         shipment_type: new FormControl(),

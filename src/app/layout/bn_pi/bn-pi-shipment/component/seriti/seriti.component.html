@@ -1,12 +1,19 @@
-<h1>
+<!-- <h1>
     Seriti
-</h1>
+</h1> -->
 <div class="formGroup" [formGroup]="group">
+    <fieldset class="form-group">
+        <label>Supplier Code:</label>
+        <select class="form-control" id="supplier_code" name="supplier_code" formControlName="supplier_code">
+            <option *ngFor="let tpl of tpl_supplier_code" [value]="tpl.supplier_code">{{ tpl.supplier_code }}</option>
+        </select>
+    </fieldset>
+
     <fieldset class="form-group">
         <label
             >1) Please specify the exact date on when our company can receive your next shipment. (Our receiving date must be on or before
-            the date you specified, unless pre-approved, any early/delay of your shipment will constitute your payment to be postponed
-            by 1 week or more.)
+            the date you specified, unless pre-approved, any early/delay of your shipment will constitute your payment to be postponed by 1
+            week or more.)
         </label>
         <div class="input-group datepicker-input">
             <input
@@ -67,12 +74,11 @@
                         unit is required.
                     </div>
                 </div> -->
-
             </div>
         </div>
     </fieldset>
     <fieldset class="form-group">
-        <label>3. Any Others:</label>
+        <label>3) Any Others:</label>
         <input class="form-control" id="any_others" name="any_others" formControlName="any_others" />
     </fieldset>
 </div>

@@ -16,6 +16,10 @@ import { SeritiComponent } from '../bn-pi-reply/component/seriti/seriti.componen
 import { DatePipe } from '@angular/common';
 // nicole 20191105
 import { DataTablesModule } from 'angular-datatables';
+// nicole 20191128
+// import {BnPiShipmentDetailComponent} from '../bn-pi-shipment/bn-pi-shipment-detail/bn-pi-shipment-detail.component';
+ import {ShipmentSeritiComponent} from '../bn-pi-shipment/component/seriti/seriti.component';
+import { BnPiShipmentModule } from '../bn-pi-shipment/bn-pi-shipment.module';
 @NgModule({
   imports: [CommonModule
     , BnPiHdrRoutingModule
@@ -25,13 +29,16 @@ import { DataTablesModule } from 'angular-datatables';
     , FormsModule
     , ReactiveFormsModule
     , DataTablesModule
+    , BnPiShipmentModule
   ],
   declarations: [
-     BnPiHdrComponent
-     , BnPiReplyComponent
-     , HeaderComponent
+    BnPiHdrComponent
+    , BnPiReplyComponent
+    , HeaderComponent
     , BirdnestComponent
     , SeritiComponent
+    // , BnPiShipmentDetailComponent
+    // , ShipmentSeritiComponent
   ]
   , providers: [DatePipe]
 })

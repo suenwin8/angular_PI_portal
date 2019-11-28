@@ -137,21 +137,28 @@ export class BnPiShipmentDetailComponent implements OnInit {
 
   }
 
-  public validation(data: IBnPiShipmentDetail): boolean {
+  public validationOrError(data?: IBnPiShipmentDetail, error?: APIResponse<UPDATE_POST_T<IBnPiShipmentDetail>>): boolean {
     this.tpl_errorMessage = '';
-    if (data.rec_type === 'SERITI') {
-      if (data.seriti_BirdsNest_unit === null) {
-        this.tpl_errorMessage = this.tpl_errorMessage + 'Missing seriti_birdsNest_unit';
+    if (data) {
+      if (data.rec_type === 'SERITI') {
+        if (data.seriti_BirdsNest_unit === null) {
+          this.tpl_errorMessage = this.tpl_errorMessage + 'Missing seriti_birdsNest_unit';
 
+        }
+      }
+    }
+
+    if (error) {
+      if (error.IsSuccess === false) {
+        this.tpl_errorMessage = this.tpl_errorMessage + error.ErrorMessage;
       }
     }
 
 
-
     if (this.tpl_errorMessage === '') {
-        return true;
+      return true;
     } else {
-        return false;
+      return false;
     }
   }
   public onSubmit() {
@@ -162,11 +169,11 @@ export class BnPiShipmentDetailComponent implements OnInit {
       reply.shipment_detail.rec_type = this.url_para_create;
     }
 
-// validation
-if (!this.validation(reply.shipment_detail)) {
-  alert('error');
-return;
-}
+    // validation
+    if (!this.validationOrError(reply.shipment_detail)) {
+      alert('error');
+      return;
+    }
 
 
     const post_data: INSERT_POST_T<IBnPiShipmentDetail> = {
@@ -215,6 +222,11 @@ return;
           this.PostToGetShipmentDetail(postdata);
         } else {
           console.warn('Problems: ', data);
+          // validation
+          if (!this.validationOrError(null, data)) {
+            alert('error');
+            return;
+          }
         }
       },
         (error) => {

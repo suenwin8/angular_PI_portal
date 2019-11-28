@@ -20,10 +20,14 @@
         <!-- <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>  -->
         <div [ngSwitch]="tpl_shipment_rec_type">
             <div *ngSwitchCase="'SERITI'">
-                <app-shipment-seriti [group]="form.get('shipment_detail')"></app-shipment-seriti>
+                <app-shipment-seriti 
+                [tpl_supplier_code]="tpl_supplier_code" 
+                [group]="form.get('shipment_detail')"></app-shipment-seriti>
             </div>
             <div *ngSwitchCase="'BIRDNEST'">
-                <app-shipment-birdnest [group]="form.get('shipment_detail')"></app-shipment-birdnest>
+                <app-shipment-birdnest 
+                [tpl_supplier_code]="tpl_supplier_code" 
+                [group]="form.get('shipment_detail')"></app-shipment-birdnest>
             </div>
         </div>
 

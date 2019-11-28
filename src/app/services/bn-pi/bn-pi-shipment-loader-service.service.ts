@@ -10,7 +10,7 @@ export class BnPiShipmentLoaderService {
   constructor(private shipmentservice: BnPiShipmentService) { }
 
   loadReplyForEdit(data: IBnPiShipmentDetail): void {
-    console.log(data);
+    // console.log(data);
     this.shipmentservice.form.patchValue({
       shipment_detail: {
         ...data

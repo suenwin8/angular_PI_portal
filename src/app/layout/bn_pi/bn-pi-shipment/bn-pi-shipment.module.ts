@@ -9,10 +9,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { BnPiShipmentComponent} from './bn-pi-shipment.component';
 import { BnPiShipmentRoutingModule } from './bn-pi-shipment-routing.module';
 import { BirdnestComponent } from './component/birdnest/birdnest.component';
-import { SeritiComponent } from './component/seriti/seriti.component';
+// import { ShipmentSeritiComponent } from './component/seriti/seriti.component';
 import { HeaderComponent } from './component/header/header.component';
 import { BnPiShipmentDetailComponent } from './bn-pi-shipment-detail/bn-pi-shipment-detail.component';
-
+import {ShipmentSeritiComponent} from './component/seriti/seriti.component';
 
 
 @NgModule({
@@ -27,10 +27,17 @@ import { BnPiShipmentDetailComponent } from './bn-pi-shipment-detail/bn-pi-shipm
   declarations: [
     BnPiShipmentComponent,
     BirdnestComponent,
-    SeritiComponent,
+    ShipmentSeritiComponent,
     HeaderComponent,
     BnPiShipmentDetailComponent
   ]
   , providers: [DatePipe]
+  , exports: [
+    // BnPiShipmentComponent,
+    BirdnestComponent,
+    ShipmentSeritiComponent,
+    // HeaderComponent,
+    // BnPiShipmentDetailComponent
+  ]
 })
 export class BnPiShipmentModule { }

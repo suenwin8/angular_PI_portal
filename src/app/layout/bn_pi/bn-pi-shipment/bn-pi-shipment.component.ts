@@ -158,10 +158,10 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
         title: 'Action',
         render: (data, type, row) => {
           if (row.status === 'C') {
-            return '<button class="btn btn-sm btn-default" view-reply-id="' + row.shipment_no + '" >View</button>';
+            return '<button class="btn btn-sm btn-default" view-shipment-id="' + row.shipment_no + '" >View</button>';
           } else {
             // return '<button class="btn btn-sm btn-warning" (click)="goToPage("' + row.txn_no + '")" >Edit</button>';
-            const html = '<button class="btn btn-sm btn-warning" view-reply-id="' + row.shipment_no + '" >Edit</button>';
+            const html = '<button class="btn btn-sm btn-warning" view-shipment-id="' + row.shipment_no + '" >Edit</button>';
             return html;
           }
         }
@@ -184,9 +184,9 @@ export class BnPiShipmentComponent implements AfterViewInit, OnDestroy, OnInit {
 
 
     this.renderer.listenGlobal('document', 'click', (event) => {
-      if (event.target.hasAttribute('view-reply-id')) {
-        // console.log('This is a custom directive!' + event.target.getAttribute('view-reply-id'));
-        this.goToPage(event.target.getAttribute('view-reply-id'));
+      if (event.target.hasAttribute('view-shipment-id')) {
+        // console.log('This is a custom directive!' + event.target.getAttribute('view-shipment-id'));
+        this.goToPage(event.target.getAttribute('view-shipment-id'));
       }
     });
   }

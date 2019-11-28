@@ -19,6 +19,9 @@ import { APIResponse } from 'src/app/models/response/apiresponse';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap, switchMap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
+import { BnPiShipmentService } from 'src/app/services/bn-pi/bn-pi-shipment-service.service';
+import { BnPiShipmentLoaderService } from 'src/app/services/bn-pi/bn-pi-shipment-loader-service.service';
+
 
 @Component({
   selector: 'app-bn-pi-reply',
@@ -52,6 +55,8 @@ export class BnPiReplyComponent implements OnInit {
     , private formBuilder: FormBuilder
     , private bnpireplyservice: BnPiReplyService
     , private bnpireplyloader: BnPiReplyLoaderService
+      , private shipment_service: BnPiShipmentService
+    // , private shipment_loader: BnPiShipmentLoaderService
     , private datePipe: DatePipe
     , private repo: RepositoryService
     , private errorHandler: ErrorHandlerService
@@ -71,6 +76,12 @@ export class BnPiReplyComponent implements OnInit {
   get form(): FormGroup {
     return this.bnpireplyservice.form;
   }
+
+  // nicole 20191127
+  // get shipmentform(): FormGroup {
+  //   console.log('shipment');
+  //   return this.shipment_service.form;
+  // }
 
   onSubmit(customerData) {
     // Process checkout data here
@@ -275,7 +286,10 @@ console.log(postdata);
   public onSubmitV2() {
     // console.warn(JSON.stringify(this.form.value));
     const reply: IBnPiReply = this.bnpireplyservice.createPIReplyDto(this.form.value);
-    const post_detail: IPOST_INSERT_PIReplyDetail = {reply_detail: reply.reply_detail, supplier_login_account_id: this.supplier_login_account_id_val };
+    const post_detail: IPOST_INSERT_PIReplyDetail = {
+      reply_detail: reply.reply_detail,
+      supplier_login_account_id: this.supplier_login_account_id_val
+    };
     post_detail.reply_detail.txn_no = reply.reply_hdr.txn_no;
     this.bnpireplyservice.InsertPIReplyDetail(post_detail).subscribe(res => {
       this.submitted_reply_obj = res;

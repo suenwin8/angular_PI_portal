@@ -11,6 +11,12 @@ import { HeaderComponent } from './component/header/header.component';
 import { BirdnestComponent } from './component/birdnest/birdnest.component';
 import { SeritiComponent } from './component/seriti/seriti.component';
 import { DatePipe } from '@angular/common';
+
+
+// nicole 20191127
+  import {ShipmentSeritiComponent} from '../bn-pi-shipment/component/seriti/seriti.component';
+ // import {BnPiShipmentDetailComponent} from '../bn-pi-shipment/bn-pi-shipment-detail/bn-pi-shipment-detail.component';
+ import {BnPiShipmentModule} from '../bn-pi-shipment/bn-pi-shipment.module';
 @NgModule({
   imports: [CommonModule
     , BnPiReplyRoutingModule
@@ -18,8 +24,16 @@ import { DatePipe } from '@angular/common';
     , NgbModule
     , FormsModule
     , ReactiveFormsModule
+     , BnPiShipmentModule
   ],
-  declarations: [BnPiReplyComponent, HeaderComponent, BirdnestComponent, SeritiComponent]
+  declarations: [
+    BnPiReplyComponent,
+    HeaderComponent,
+    BirdnestComponent,
+    SeritiComponent,
+     // ShipmentSeritiComponent,
+    // BnPiShipmentDetailComponent
+  ]
   , providers: [DatePipe]
 })
 export class BnPiReplyModule { }
